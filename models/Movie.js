@@ -1,6 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+
+class Movie extends Model {}
+
 Movie.init(
 {
     id: {
@@ -38,6 +41,13 @@ Movie.init(
     allowNull: false,
     defaultValue: false,
   },
+},
+{
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'movie',
 });
 
 module.exports = Movie;

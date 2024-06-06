@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+class Holiday extends Model {}
+
 Holiday.init(
     {
         id: {
@@ -29,6 +31,13 @@ Holiday.init(
           allowNull: false,
           defaultValue: false,
         },
-      });
+      },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'holiday',
+    });
       
       module.exports = Holiday;
