@@ -20,7 +20,7 @@ Movie.init(
     allowNull: false,
   },
   overview: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
   poster_path: {
