@@ -1,18 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Movie } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
+    const movieData = await Movie.findAll();
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
 
     res.render('homepage', {
-      users,
+      movies,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -28,5 +25,9 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/dashboard', withAuth, (req, res) => {
+  res.render('dashboard')
+})
 
 module.exports = router;
