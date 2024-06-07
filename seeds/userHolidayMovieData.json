@@ -1,0 +1,26 @@
+[
+  {
+    "movie_id": "1",
+    "holiday_id": "1",
+    "rating": "8",
+    "review": "A timeless holiday classic filled with slapstick comedy and heartwarming moments, centered around a young boy's misadventures defending his home from bumbling burglars."
+  },
+  {
+    "movie_id": "2",
+    "holiday_id": "1",
+    "rating": "9",
+    "review": "A quintessential action thriller that redefined the genre, featuring Bruce Willis as John McClane battling terrorists in a high-rise building on Christmas Eve with adrenaline-pumping intensity and iconic one-liners."
+  },
+  {
+    "movie_id": "3",
+    "holiday_id": "2",
+    "rating": "7",
+    "review": "A thrilling sci-fi blockbuster that delivers exhilarating action and groundbreaking special effects as humanity fights for survival against an alien invasion on July 4th."
+  },
+  {
+    "movie_id": "4",
+    "holiday_id": "3",
+    "rating": "6",
+    "review": "A chilling horror classic that masterfully builds tension and fear, with Jamie Lee Curtis's iconic performance as Laurie Strode and John Carpenter's haunting score setting the standard for slasher films."
+  }
+]
