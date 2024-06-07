@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-violet-800">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HoliDB</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <link href="/css/output.css" rel="stylesheet">
 </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      HoliDB
-    </h1>
-    <nav>
-      <button class="btn"><a href="/">Home</a></button>
-      <button class="btn"><a href="/dashboard">Dashboard</a></button>
-    {{#if logged_in}}
-      <button class="btn" id="logout">Log Out</button>
-      {{else}}
-      <button class="btn"><a href="/login">Log In</a></button>
-    {{/if}}
-    </nav>
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+<body class="h-full text-violet-300">
+  <div class="w-full min-h-screen flex flex-col">
+    <header class="flex justify-between content-center p-4 border-4 border-violet-300 rounded">
+      <div class="flex-1 text-center w-3/4">
+        <h1 class="text-6xl font-bold">
+          HoliDB
+        </h1>
+      </div>
+      <nav class="self-center justify-end flex gap-4 w-1/4 pr-5">
+        <button class="btn bg-violet-300"><a href="/">Home</a></button>
+        <button class="btn bg-violet-300"><a href="/dashboard">Dashboard</a></button>
+      {{#if logged_in}}
+        <button class="btn bg-violet-300" id="logout">Log Out</button>
+        {{else}}
+        <button class="btn bg-violet-300"><a href="/login">Log In</a></button>
+      {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5 mx-auto">
+      {{{ body }}}
+    </main>
+    <footer>
+    
+    </footer>
+  </div>
 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
