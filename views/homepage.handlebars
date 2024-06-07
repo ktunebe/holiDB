@@ -1,11 +1,18 @@
-{{#each movies}}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{ get_emoji }}} {{ this.title }}</h2>
+<div class="flex">
+  <div class="w-3/4">
+  <h2 class="text-center font-bold text-4xl border-2 border-violet-300 rounded-full py-4">Countdown to 4th of July: 28 Days, 2 Hours, 30 Minutes</h2>
+  <h3 class="mt-6 text-3xl font-bold text-center">4th of July Movies</h3>
+  {{#each movies}}
+  <div class="flex gap-4 py-5">
+      <img class="w-32 h-32 self-center" src="{{ this.poster_path }}"></img>
+    <div class="self-center">
+      <h2 class="font-bold text-2xl pb-2">{{ this.title }}</h2>
+      <p>{{ this.overview }}</p>
+    </div>
   </div>
-  <div class="col-md-6">
-    <p>{{ this.overview }}</p>
-    <img src="{{ this.poster_path }}"></img>
+  {{/each}}
+  </div>
+  <div>
+
   </div>
 </div>
-{{/each}}
