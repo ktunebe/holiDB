@@ -1,0 +1,26 @@
+<h2 class="text-center text-3xl font-bold pb-6">Search Results</h2>
+  {{#if matchedHoliDbMovies}}
+  <h3 class="text-2xl">HoliDB Movies</h3>
+    <ul pb-8>
+      {{#each matchedHoliDbMovies}}
+        <li>
+          {{> movie-summary}}
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+  <h3 class="text-2xl pb-8">No matching results in HoliDB</h3>
+  {{/if}}
+  {{#if matchedTmdbMovies}}
+  <h3 class="text-2xl pt-8">TMDB Movies</h3>
+    <ul>
+      {{#each matchedTmdbMovies}}
+        <li>
+          {{> movie-summary}}
+          <button class="btn bg-violet-300 text-violet-800">Add Movie to HoliDB</button>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+  <h3 class="text-2xl py-8">No matching results in HoliDB</h3>
+  {{/if}}
