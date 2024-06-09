@@ -10,27 +10,52 @@
 
 <body class="h-full text-violet-300">
   <div class="w-full min-h-screen flex flex-col">
-    <header class="flex justify-between content-center p-4 border-4 border-violet-300 rounded">
-      <div class="flex-1 text-center w-3/4">
-        <h1 class="text-6xl font-bold">
-          HoliDB
-        </h1>
+    <div class="navbar border-2 rounded border-violet-300">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle ml-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <ul tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] px-4 shadow text-xl bg-violet-300 text-violet-800 rounded-box text-nowrap">
+            <li class="py-2">Search HoliDB</li>
+            <li class="py-2">Search TMDB</li>
+          </ul>
+        </div>
       </div>
-      <nav class="self-center justify-end flex gap-4 w-1/4 pr-5">
-        <button class="btn bg-violet-300"><a href="/">Home</a></button>
-        <button class="btn bg-violet-300"><a href="/dashboard">Dashboard</a></button>
-      {{#if logged_in}}
-        <button class="btn bg-violet-300" id="logout">Log Out</button>
-        {{else}}
-        <button class="btn bg-violet-300"><a href="/login">Log In</a></button>
-      {{/if}}
-      </nav>
-    </header>
+      <div class="navbar-center">
+        <a href="/" class="text-6xl font-bold">HoliDB</a>
+      </div>
+      <div class="navbar-end">
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+          </div>
+          <ul tabindex="0"
+            class="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-48 text-xl bg-violet-300 text-violet-800">
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/dashboard">Portfolio</a></li>
+            {{#if logged_in}}
+            <li><a id="logout">Log Out</a></li>
+            {{else}}
+            <li><a href="/login">Log Out</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
     <main class="container container-fluid mt-5 mx-auto">
       {{{ body }}}
     </main>
     <footer>
-    
+
     </footer>
   </div>
 

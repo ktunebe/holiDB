@@ -13,10 +13,12 @@ Movie.init(
     tmdb_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: true
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     overview: {
       type: DataTypes.TEXT,

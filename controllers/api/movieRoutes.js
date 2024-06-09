@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Movie } = require("../../models");
-const findMovieByTitle = require("../../utils/movieDb");
+const { addMovieByTitle } = require("../../utils/movieDb");
 
 router.post("/", async (req, res) => {
   console.log(`Movie post route hit - data: ${JSON.stringify(req.body)}`);
@@ -14,8 +14,11 @@ router.post("/", async (req, res) => {
   }
 
   if (!tmdb_id || tmdb_id === "") {
-    const movieDataFromTitle = await findMovieByTitle(title);
+    const movieDataFromTitle = await addMovieByTitle(title);
     req.body.tmdb_id = JSON.parse(movieDataFromTitle).tmdb_id;
+    req.body.title = JSON.parse(movieDataFromTitle).title;
+    req.body.overview = JSON.parse(movieDataFromTitle).overview;
+    req.body.poster_path = JSON.parse(movieDataFromTitle).poster_path;
   }
 
   try {
