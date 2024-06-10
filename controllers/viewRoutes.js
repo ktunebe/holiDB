@@ -3,6 +3,8 @@ const { User, Movie } = require('../models');
 const withAuth = require('../utils/auth');
 const { findMoviesByTitlePortion, findMovieByTitle } = require("../utils/movieDb");
 
+/* ---------------- RENDER HOMEPAGE ------------------------------------ */
+// Getting all movies right now, will change what is actually displayed
 router.get('/', async (req, res) => {
   try {
     const movieData = await Movie.findAll();
@@ -18,6 +20,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+/* ------------------ LOG IN PAGE --------------------------------------------- */
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -27,14 +30,28 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/dashboard', withAuth, (req, res) => {
-  res.render('dashboard')
+/* ---------------- GO TO USER DASHBOARD --------------------------------- */
+// Currently getting all movies
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const movieData = await Movie.findAll();
+
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
+
+    res.render('dashboard', {
+      movies,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 })
 
+/* ----- SEARCH MOVIES BY TITLE, RENDER RESULTS PAGE -------------------------- */
 router.get('/movies/:title', async (req, res) => {
-	const title = req.params.title;
-	try {
-		const matchedTmdbMovies = await findMoviesByTitlePortion(title);
+  const title = req.params.title;
+  try {
+    const matchedTmdbMovies = await findMoviesByTitlePortion(title);
     const holiDbMovieData = await Movie.findAll();
 
     const matchedHoliDbMovieData = holiDbMovieData.filter((result) =>
@@ -45,11 +62,11 @@ router.get('/movies/:title', async (req, res) => {
     res.render('search-results', {
       matchedTmdbMovies,
       matchedHoliDbMovies,
-      logged_in: req.session && req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
-	} catch (error) {
-		res.status(500).json({ error: 'An error occurred while fetching movies' });
-	}
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while fetching movies' });
+  }
 });
 
 

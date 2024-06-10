@@ -1,17 +1,11 @@
 module.exports = {
-  get_emoji: () => {
-    const randomNum = Math.random();
-    let book = "📗";
-
-    if (randomNum > 0.7) {
-      book = "📘";
-    } else if (randomNum > 0.4) {
-      book = "📙";
-    }
-
-    return `<span for="img" aria-label="book">${book}</span>`;
+  // Helper to omit movies that are already in HoliDB from TMDB list on search
+  not_in_holiDb: function (movieTitle, holiDbMovies) {
+    const holiDbTitles = new Set(holiDbMovies.map(movie => movie.title.toLowerCase()));
+    return !holiDbTitles.has(movieTitle.toLowerCase());
   },
-
+  /* ---------------------------------------------------------------------------- */
+  // Formate date helper
   format_date: function(date) {
     const year = date.getFullYear()
     const month = date.getMonth() + 1

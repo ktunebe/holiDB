@@ -1,26 +1,37 @@
 <h2 class="text-center text-3xl font-bold pb-6">Search Results</h2>
-  {{#if matchedHoliDbMovies}}
-  <h3 class="text-2xl">HoliDB Movies</h3>
-    <ul pb-8>
-      {{#each matchedHoliDbMovies}}
-        <li>
-          {{> movie-summary}}
-        </li>
-      {{/each}}
-    </ul>
-  {{else}}
-  <h3 class="text-2xl pb-8">No matching results in HoliDB</h3>
-  {{/if}}
-  {{#if matchedTmdbMovies}}
-  <h3 class="text-2xl pt-8">TMDB Movies</h3>
-    <ul>
-      {{#each matchedTmdbMovies}}
-        <li>
-          {{> movie-summary}}
-          <button class="btn bg-violet-300 text-violet-800">Add Movie to HoliDB</button>
-        </li>
-      {{/each}}
-    </ul>
-  {{else}}
-  <h3 class="text-2xl py-8">No matching results in HoliDB</h3>
-  {{/if}}
+{{!-- If search matches part of title in HoliDB, display each result --}}
+  <div class="py-4">
+    {{#if matchedHoliDbMovies}}
+    <h3 class="text-2xl font-bold text-center ml-8 ">HoliDB Movies</h3>
+      <ul pb-8>
+        {{#each matchedHoliDbMovies}}
+          <li>
+            {{> movie-summary}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+    <h3 class="text-2xl pb-8">No matching results in HoliDB</h3>
+    {{/if}}
+  </div>
+  {{!-- If search matches part of title in TMDB, display each result --}}
+  <div class="pt-4 mb-16">
+    {{#if matchedTmdbMovies}}
+    <h3 class="text-2xl font-bold text-center pt-8">TMDB Movies</h3>
+      <ul>
+        {{#each matchedTmdbMovies}}
+        {{!-- Use helper to omit results already in HoliDB --}}
+        {{#if (not_in_holiDb this.title ../matchedHoliDbMovies)}}
+          <li>
+            {{> movie-summary}}
+            <button class="btn bg-violet-300 text-violet-800 add-movie-button" value="{{this.title}}">Add Movie to HoliDB</button>
+          </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    {{else}}
+    <h3 class="text-2xl py-8">No matching results in TMDB</h3>
+    {{/if}}
+  </div>
+
+  <script src="/js/add-movie.js"></script>
