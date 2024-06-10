@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Movie } = require("../../models");
 const { addMovieByTitle } = require("../../utils/movieDb");
 
+/* ---------------------------- ADD MOVIE BY TITLE------------------------------------------------ */
 router.post("/", async (req, res) => {
   console.log(`Movie post route hit - data: ${JSON.stringify(req.body)}`);
 
@@ -33,6 +34,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+/* ---------------------------- DELETE MOVIE BY ID------------------------------------------------ */
 router.delete("/:id", async (req, res) => {
   console.log(`Movie delete route hit - movie ID: ${req.params.id}`);
 
