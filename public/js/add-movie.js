@@ -17,14 +17,11 @@ const addMovieByTitle = async (movieTitle) => {
   }
 };
 /* ---------------------------------------------------------------------------- */
-// Event listener to add movie, change button and/or reload window with movie in new list
+// Event listener to add movie, reload window with movie in new list
 addMovieButtons.forEach(function (button) {
   button.addEventListener('click', async (e) => {
     const movieTitle = e.target.value;
     console.log('Adding movie: ' + movieTitle);
-
-    e.target.innerText = 'Added to HoliDB!';
-    e.target.classList.add('btn-disabled')
 
     await addMovieByTitle(movieTitle);
     

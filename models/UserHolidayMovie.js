@@ -16,6 +16,8 @@ UserHolidayMovie.init(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // unique: false,
+      // constraints: false,
       references: {
         model: User,
         key: "id",
@@ -24,6 +26,8 @@ UserHolidayMovie.init(
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // unique: false,
+      // constraints: false,
       references: {
         model: Movie,
         key: "id",
@@ -32,6 +36,8 @@ UserHolidayMovie.init(
     holiday_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      // unique: false,
+      // constraints: false,
       references: {
         model: Holiday,
         key: "id",
@@ -40,10 +46,6 @@ UserHolidayMovie.init(
     rating: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    review: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
   },
   {
