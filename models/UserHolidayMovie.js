@@ -18,6 +18,7 @@ UserHolidayMovie.init(
       allowNull: false,
       // unique: false,
       // constraints: false,
+      // allowNull: false,
       references: {
         model: User,
         key: "id",
