@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Movie } = require('../models');
+const { User, Movie, Holiday } = require('../models');
 const withAuth = require('../utils/auth');
 const { findMoviesByTitlePortion, findMovieByTitle } = require("../utils/movieDb");
 
@@ -68,6 +68,23 @@ router.get('/movies/:title', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while fetching movies' });
   }
 });
+
+/* ---------------- ALL HOLIDAYS PAGE --------------------------------- */
+// Get all holidays
+router.get('/holidays', withAuth, async (req, res) => {
+  try {
+    const holidayData = await Holiday.findAll();
+
+    const holidays = holidayData.map((holiday) => holiday.get({ plain: true }));
+
+    res.render('holidays', {
+      holidays,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 
 module.exports = router;
