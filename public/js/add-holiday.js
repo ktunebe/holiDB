@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       })
       .then(data => {
         console.log('Success:', data);
+        window.location.reload();
         // Optionally, do something with the response data if needed
       })
       .catch(error => {
@@ -62,6 +63,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
       form.reset();
     });
   });
+
+  window.deleteHoliday = function(id) {
+    fetch(`/api/holidays/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Delete Success:', data);
+      // Remove the holiday entry from the DOM
+      const holidayElement = document.getElementById(`holiday-${id}`);
+      if (holidayElement) {
+        holidayElement.remove();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
 
   
   
