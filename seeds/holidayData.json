@@ -16,5 +16,11 @@
     "date": "2001-07-04T05:00:00.000Z",
     "description": "Independence Day, celebrated on July 4th in the United States, commemorates the country's declaration of independence from British rule in 1776 with fireworks, parades, and patriotic festivities.",
     "public": "true"
+  },
+  {
+    "name": "Birthday",
+    "date": "2001-08-04T05:00:00.000Z",
+    "description": "Sal's Birthday",
+    "user_id": "2"
   }
 ]

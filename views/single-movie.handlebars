@@ -1,12 +1,16 @@
-  <div class="flex gap-4 pt-10">
-      <div class="size-32 self-center">
-        <img class="" src="{{ movie.poster_path }}" alt="movie poster image may not available"></img>
-        </div>
-    <div class="self-center">
-      <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
-      <p>{{ movie.overview }}</p>
-    </div>
-    {{#each holidays}}
-      <a href="/holidays/{{ this.id }}">{{ this.name }}</a>
-    {{/each}}
+<div class="flex gap-4 pt-10">
+  <div class="size-32 self-center">
+    <img class="" src="{{ movie.poster_path }}" alt="movie poster image may not available"></img>
   </div>
+  <div class="self-center">
+    <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
+    <p class="mb-4">{{ movie.overview }}</p>
+    {{#if holidays}}
+    <h3 class="inline-block pr-4">Tags: </h3>
+    {{#each holidays}}
+    <a class="px-2 py-0.5 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.name}} inline-block"
+      href="/holidays/{{ this.id }}">{{ this.name }}</a>
+    {{/each}}
+    {{/if}}
+  </div>
+</div>

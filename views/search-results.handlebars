@@ -6,7 +6,7 @@
       <ul pb-8>
         {{#each matchedHoliDbMovies}}
           <li>
-            {{> movie-summary}}
+            {{> holidb-movie-summary}}
           </li>
         {{/each}}
       </ul>
@@ -23,8 +23,7 @@
         {{!-- Use helper to omit results already in HoliDB --}}
         {{#if (not_in_holiDb this.title ../matchedHoliDbMovies)}}
           <li>
-            {{> movie-summary}}
-            <button class="btn bg-violet-300 text-violet-800 add-movie-button" value="{{this.title}}">Add Movie to HoliDB</button>
+            {{> tmdb-movie-summary}}
           </li>
         {{/if}}
         {{/each}}
