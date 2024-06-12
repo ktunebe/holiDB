@@ -1,0 +1,6 @@
+<div id="holiday-{{ this.id }}">
+  <a href="/holidays/{{ this.id }}" class="text-3xl font-bold underline">{{ this.name }}</a>
+  <p class="ml-6 py-4">Holiday Date: {{ this.date }}</p>
+  <p class="ml-6 py-4">{{ this.description }}</p>
+  <button class="btn btn-danger" onclick="deleteHoliday({{ this.id }})">Delete</button>
+</div>
