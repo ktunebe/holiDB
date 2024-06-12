@@ -1,0 +1,14 @@
+{{!-- Movie summary with links --}}
+<div class="flex gap-4 pt-10">
+  <div class=" flex-none w-32 h-32 self-center">
+    <a href="/movies/{{ this.id }}">
+      <img class="object-contain w-full h-full" src="{{ this.poster_path }}" alt="movie poster image may not available"></img>
+    </a>
+  </div>
+  <div class="self-center">
+    <a href="/movies/{{ this.id }}">
+      <h2 class="font-bold text-2xl pb-2">{{ this.title }}</h2>
+    </a>
+    <p class="py-2">{{ this.overview }}</p>
+  </div>
+</div>

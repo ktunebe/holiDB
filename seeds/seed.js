@@ -22,7 +22,7 @@ const seedDatabase = async () => {
   for (const holiday of holidayData) {
     await Holiday.create({
       ...holiday,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      user_id: holiday.user_id || users[Math.floor(Math.random() * users.length)].id,
     });
   }
 

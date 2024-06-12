@@ -1,3 +1,35 @@
+:root {
+  --color-primary: #5b21b6; /* Default primary color */
+  --color-secondary: #c4b5fd; /* Default secondary color */
+  --color-accent: #FFFFFF;
+  --color-bg: #5b21b6;
+}
+
+.theme-winter {
+  --color-primary: #1e3a8a;
+  --color-secondary: #bfdbfe;
+  --color-accent: #f8fafc;
+}
+
+.theme-independence {
+  --color-primary: #0A3161;
+  --color-secondary: #B31942;
+  --color-accent: #ffffff;
+}
+
+.theme-christmas {
+  --color-primary: #378b29;
+  --color-secondary: #ff0000;
+  --color-accent: 	#ffffff;
+}
+
+.theme-halloween {
+  --color-primary: #ff6c00;
+  --color-secondary: #000000;
+  --color-accent: #000000;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

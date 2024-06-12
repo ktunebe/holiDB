@@ -1,0 +1,12 @@
+{{!-- Movie summary with add to db button --}}
+<div class="flex gap-4 pt-10">
+  <div class=" flex-none w-32 h-32 self-center">
+    <img class="object-contain w-full h-full" src="{{ this.poster_path }}" alt="movie poster image may not available"></img>
+  </div>
+  <div class="self-center">
+    <h2 class="font-bold text-2xl pb-2">{{ this.title }}</h2>
+    <p class="py-2">{{ this.overview }}</p>
+    <button class="btn bg-secondary text-primary add-movie-button" value="{{this.title}}">Add Movie to
+      HoliDB</button>
+  </div>
+</div>

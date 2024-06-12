@@ -1,17 +1,44 @@
-<h2>Login</h2>
+<div class="flex-grow">
+    <h1 class="text-center my-5 text-5xl font-blox">Login / Signup</h1>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
+    <div class="flex justify-center">
+        <div class="card border-2 border-secondary mx-4">
+            <div class="card-body">
+                <h5 class="card-title">Log in</h5>
+                <form id="login-form">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address*</label>
+                        <input type="email" class="form-control text-black p-1" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control text-black p-1" name="password">
+                    </div>
+                    <button class="btn bg-secondary hover:bg-accent" type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+        <div class="card border-2 border-secondary mx-4">
+            <div class="card-body">
+                <h5 class="card-title">Sign up</h5>
+                <form id="signup-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name*</label>
+                        <input type="text" class="form-control text-black p-1" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email*</label>
+                        <input type="email" class="form-control text-black p-1" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control text-black p-1" name="password">
+                    </div>
+                    <button class="btn bg-secondary hover:bg-accent" type="submit">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="/js/login.js"></script>
+<script src="/js/login-and-signup.js"></script>

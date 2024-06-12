@@ -60,6 +60,7 @@ router.get('/movies/search/:title', async (req, res) => {
     const matchedHoliDbMovieData = holiDbMovieData.filter((result) =>
       result.title.toLowerCase().includes(title.toLowerCase())
     )
+
     const matchedHoliDbMovies = matchedHoliDbMovieData.map((movie) => movie.get({ plain: true }));
 
     res.render('search-results', {
@@ -77,12 +78,26 @@ router.get('/movies/search/:title', async (req, res) => {
 // Get all holidays
 router.get('/holidays', withAuth, async (req, res) => {
   try {
-    const holidayData = await Holiday.findAll();
+    // Get all public holidays
+    const publicHolidayData = await Holiday.findAll({
+      where: { 
+        public: true
+      }
+    });
+    // Get all of user's created holidays
+    const myHolidayData = await Holiday.findAll({
+      where: { 
+        user_id: req.session.user_id
+      }
+    });
 
-    const holidays = holidayData.map((holiday) => holiday.get({ plain: true }));
+    // Get plain data for each
+    const publicHolidays = publicHolidayData.map((holiday) => holiday.get({ plain: true }));
+    const myHolidays = myHolidayData.map((holiday) => holiday.get({ plain: true }));
 
     res.render('holidays', {
-      holidays,
+      publicHolidays,
+      myHolidays,
       logged_in: req.session.logged_in,
       session_user: req.session.user_id
     });
@@ -93,47 +108,61 @@ router.get('/holidays', withAuth, async (req, res) => {
 
 /* -------------- INDIVIDUAL HOLIDAY PAGE---------------------------------------------- */
 
-// router.get('/holidays/:id', withAuth, async (req, res) => {
-//   const {id} = req.params
-//   try {
-//     const holidayData = await Holiday.findByPk(id, {
-//       include: [
-//         {
-//           model: Movie,
-//           attributes: ['title']
-//         }
-//       ]
-//     })
+router.get('/holidays/:id', withAuth, async (req, res) => {
+  const { id } = req.params
+  try {
+    const holidayData = await Holiday.findByPk(id)
 
-// 		const holiday = holidayData.get({ plain: true })
+    const userHolidayMovieData = await UserHolidayMovie.findAll({
+      where: {
+        holiday_id: id
+      },
+      attributes: ['movie_id']
+    })
+    const movieIds = userHolidayMovieData.map((uhm) => uhm.get({ plain: true }).movie_id)
+    console.log(movieIds)
 
-// 		res.render('single-holiday', {
-// 			holiday,
-// 			logged_in: req.session.logged_in,
-//       session_user: req.session.user_id
-// 		});
+    const movieData = await Movie.findAll({
+      where: {
+        id: {
+          [Op.in]: movieIds
+        }
+      },
+    })
 
-// 	} catch (err) {
-// 		console.log(err)
-// 		res.status(500).send('Error getting holiday.')
-// 	}
-// });
+    const movies = movieData.map((movie) => movie.get({ plain: true }))
+
+
+    const holiday = holidayData.get({ plain: true })
+    console.log(holiday)
+    res.render('single-holiday', {
+      holiday,
+      movies,
+      logged_in: req.session.logged_in,
+      session_user: req.session.user_id
+    });
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Error getting holiday.')
+  }
+});
 
 
 /* -------------- INDIVIDUAL MOVIE PAGE---------------------------------------------- */
 
 router.get('/movies/:id', withAuth, async (req, res) => {
-  const {id} = req.params
+  const { id } = req.params
   try {
     const movieData = await Movie.findByPk(id)
 
-    const userMovieHolidayData = await UserHolidayMovie.findAll({
+    const userHolidayMovieData = await UserHolidayMovie.findAll({
       where: {
         movie_id: id
       },
       attributes: ['holiday_id']
     })
-    const holidayIds = userMovieHolidayData.map((umh) => umh.get({ plain: true }).holiday_id)
+    const holidayIds = userHolidayMovieData.map((uhm) => uhm.get({ plain: true }).holiday_id)
     console.log(holidayIds)
 
     const holidayData = await Holiday.findAll({
@@ -148,19 +177,19 @@ router.get('/movies/:id', withAuth, async (req, res) => {
     const holidays = holidayData.map((holiday) => holiday.get({ plain: true }))
 
 
-		const movie = movieData.get({ plain: true })
+    const movie = movieData.get({ plain: true })
     console.log(movie)
-		res.render('single-movie', {
-			movie,
+    res.render('single-movie', {
+      movie,
       holidays,
-			logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
       session_user: req.session.user_id
-		});
+    });
 
-	} catch (err) {
-		console.log(err)
-		res.status(500).send('Error getting movie.')
-	}
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Error getting movie.')
+  }
 });
 
 module.exports = router;

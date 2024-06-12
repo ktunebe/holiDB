@@ -1,6 +1,17 @@
-<h2 class="text-5xl pb-5 text-center">Holidays</h2>
-  <div class="mb-12">
-    {{#each holidays}}
+<div class="mb-12">
+<h2 class="text-5xl pb-5 text-center">Public Holidays</h2>
+  {{#each publicHolidays}}
+    {{> holiday-summary}}
+  {{/each}}
+</div>
+<div>
+  {{#if myHolidays}}
+  <h2 class="text-5xl pb-5 text-center">My Holidays</h2>
+    {{#each myHolidays}}
       {{> holiday-summary}}
     {{/each}}
-  </div>
+      {{else}}
+    <h2 class="text-5xl pb-5 text-center">Currently No Personal Holidays</h2>
+    <button class="btn" id="addHolidayButton">Add Holiday</button>
+  {{/if}}
+</div>

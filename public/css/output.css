@@ -1,6 +1,37 @@
-/*
-! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
-*/
+:root {
+  --color-primary: #5b21b6;
+  /* Default primary color */
+  --color-secondary: #c4b5fd;
+  /* Default secondary color */
+  --color-accent: #FFFFFF;
+  --color-bg: #5b21b6;
+}
+
+.theme-winter {
+  --color-primary: #1e3a8a;
+  --color-secondary: #bfdbfe;
+  --color-accent: #f8fafc;
+}
+
+.theme-independence {
+  --color-primary: #0A3161;
+  --color-secondary: #B31942;
+  --color-accent: #ffffff;
+}
+
+.theme-christmas {
+  --color-primary: #378b29;
+  --color-secondary: #ff0000;
+  --color-accent: 	#ffffff;
+}
+
+.theme-halloween {
+  --color-primary: #ff6c00;
+  --color-secondary: #000000;
+  --color-accent: #000000;
+}
+
+/* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -8679,12 +8710,26 @@ html:has(.drawer-open.drawer-open) {
   margin-right: auto;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
 
 .mb-16 {
   margin-bottom: 4rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .ml-2 {
@@ -8717,6 +8762,14 @@ html:has(.drawer-open.drawer-open) {
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 
 .box-border {
@@ -8859,6 +8912,10 @@ html:has(.drawer-open.drawer-open) {
   height: 100%;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -8885,6 +8942,14 @@ html:has(.drawer-open.drawer-open) {
 
 .w-full {
   width: 100%;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.flex-none {
+  flex: none;
 }
 
 .flex-shrink {
@@ -9725,6 +9790,10 @@ html:has(.drawer-open.drawer-open) {
   border-radius: 0.25rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-box {
   border-radius: var(--rounded-box, 1rem);
 }
@@ -9807,6 +9876,10 @@ html:has(.drawer-open.drawer-open) {
   border-width: 2px;
 }
 
+.border-4 {
+  border-width: 4px;
+}
+
 .border-x {
   border-left-width: 1px;
   border-right-width: 1px;
@@ -9865,14 +9938,16 @@ html:has(.drawer-open.drawer-open) {
   border-style: none;
 }
 
-.border-violet-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(196 181 253 / var(--tw-border-opacity));
+.border-accent {
+  border-color: var(--color-accent);
 }
 
-.border-violet-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(91 33 182 / var(--tw-border-opacity));
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.border-secondary {
+  border-color: var(--color-secondary);
 }
 
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
@@ -9880,14 +9955,16 @@ html:has(.drawer-open.drawer-open) {
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-violet-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(196 181 253 / var(--tw-bg-opacity));
+.bg-bg {
+  background-color: var(--color-bg);
 }
 
-.bg-violet-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(91 33 182 / var(--tw-bg-opacity));
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
 }
 
 .decoration-slice {
@@ -10059,6 +10136,16 @@ html:has(.drawer-open.drawer-open) {
   padding-bottom: 0.25rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -10083,6 +10170,10 @@ html:has(.drawer-open.drawer-open) {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
 }
 
 .pt-10 {
@@ -10259,19 +10350,26 @@ html:has(.drawer-open.drawer-open) {
   color: rgb(51 102 153 / .35);
 }
 
+.text-accent {
+  color: var(--color-accent);
+}
+
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.text-violet-300 {
-  --tw-text-opacity: 1;
-  color: rgb(196 181 253 / var(--tw-text-opacity));
+.text-primary {
+  color: var(--color-primary);
 }
 
-.text-violet-800 {
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-black {
   --tw-text-opacity: 1;
-  color: rgb(91 33 182 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -10738,6 +10836,10 @@ html:has(.drawer-open.drawer-open) {
       }
     }
   }
+}
+
+.hover\:bg-accent:hover {
+  background-color: var(--color-accent);
 }
 
 .hover\:font-bold:hover {
