@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       })
       .then(data => {
         console.log('Success:', data);
+        window.location.reload();
         // Optionally, do something with the response data if needed
       })
       .catch(error => {
