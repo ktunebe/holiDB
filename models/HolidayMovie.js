@@ -13,17 +13,6 @@ UserHolidayMovie.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      // unique: false,
-      // constraints: false,
-      // allowNull: false,
-      references: {
-        model: User,
-        key: "id",
-      },
-    },
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -44,7 +33,7 @@ UserHolidayMovie.init(
         key: "id",
       },
     },
-    rating: {
+    association_score: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

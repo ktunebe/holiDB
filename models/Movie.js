@@ -13,12 +13,12 @@ Movie.init(
     tmdb_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     overview: {
       type: DataTypes.TEXT,
@@ -32,15 +32,6 @@ Movie.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    public: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
     },
   },
   {
