@@ -14,7 +14,7 @@
 }
 
 .theme-independence {
-  --color-primary: #0A3161;
+  --color-primary: #0900ff;
   --color-secondary: #B31942;
   --color-accent: #ffffff;
 }
@@ -29,6 +29,36 @@
   --color-primary: #ff6c00;
   --color-secondary: #000000;
   --color-accent: #000000;
+}
+
+.theme-stpatricks {
+  --color-primary: #274e13;
+  --color-secondary: #9aff00;
+  --color-accent: #6aa84f;
+}
+
+.theme-easter {
+  --color-primary: #f298f4;
+  --color-secondary: #f7f396;
+  --color-accent: #c1fda0;
+}
+
+.theme-thanksgiving {
+  --color-primary: #511f16;
+  --color-secondary: #dbba33;
+  --color-accent: #b6562a;
+}
+
+.theme-valentines {
+  --color-primary: #d60000;
+  --color-secondary: #ffc5e6;
+  --color-accent: #ffffff;
+}
+
+.theme-newyears {
+  --color-primary: #14054c;
+  --color-secondary: #cfcfcf;
+  --color-accent: #ffffff;
 }
 
 /* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
