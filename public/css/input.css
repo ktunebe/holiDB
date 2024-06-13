@@ -38,3 +38,12 @@
 .btn.btn-disabled {
   @apply bg-gray-200 text-black;
 }
+
+@font-face {
+  font-family: 'Broadway3D';
+  src: url('../fonts/Broadway3D.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Undeveloped';
+  src: url('../fonts/UndevelopedBook.ttf') format('truetype');
+}

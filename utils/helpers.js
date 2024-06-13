@@ -1,9 +1,9 @@
 module.exports = {
   /* ---------------------------------------------------------------------------- */
-  // Helper to omit movies that are already in HoliDB from TMDB list on search
-  not_in_holiDb: function (movieTitle, holiDbMovies) {
-    const holiDbTitles = new Set(holiDbMovies.map(movie => movie.title.toLowerCase()));
-    return !holiDbTitles.has(movieTitle.toLowerCase());
+  // Helper to omit movies that are already in one list from appearing in another
+  no_dupes: function (omittedItem, movieList) {
+    const movieTitles = new Set(movieList.map(movie => movie.title.toLowerCase()));
+    return !movieTitles.has(omittedItem.toLowerCase());
   },
   /* ---------------------------------------------------------------------------- */
   // Format date helper
