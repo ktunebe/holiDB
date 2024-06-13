@@ -8,11 +8,11 @@ module.exports = {
   /* ---------------------------------------------------------------------------- */
   // Format date helper
   format_date: function(date) {
-    const year = date.getFullYear()
+    // const year = date.getFullYear()
     const month = date.getMonth() + 1
     const day = date.getDay()
 
-    return `${month}/${day}/${year}`
+    return `${month}/${day}`
   },
   /* ---------------------------------------------------------------------------- */
   // Get theme from holiday name

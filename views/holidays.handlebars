@@ -1,5 +1,10 @@
 <div class="mb-12">
-<h2 class="text-5xl pb-5 text-center">Public Holidays</h2>
+  <h2 class="text-5xl pb-5 text-center">Holidays</h2>
+  {{#each holidays}}
+    {{> holiday-summary}}
+  {{/each}}
+</div>
+{{!-- <h2 class="text-5xl pb-5 text-center">Public Holidays</h2>
   {{#each publicHolidays}}
     {{> private-holiday-summary}}
   {{/each}}
@@ -12,7 +17,7 @@
     {{/each}}
       {{else}}
     <h2 class="text-5xl pb-5 text-center">Currently No Personal Holidays</h2>
-    {{/if}}
+    {{/if}} --}}
 
     <!-- Open the modal using ID.showModal() method -->
 <button class="btn justify-center" onclick="my_modal_1.showModal()">Add New Holiday</button>

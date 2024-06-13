@@ -4,9 +4,9 @@ const User = require("./User");
 const Movie = require("./Movie");
 const Holiday = require("./Holiday");
 
-class UserHolidayMovie extends Model {}
+class HolidayMovie extends Model {}
 
-UserHolidayMovie.init(
+HolidayMovie.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -47,4 +47,4 @@ UserHolidayMovie.init(
   }
 );
 
-module.exports = UserHolidayMovie;
+module.exports = HolidayMovie;

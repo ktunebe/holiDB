@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const userRoutes = require("./userRoutes");
 const movieRoutes = require("./movieRoutes");
-const userHolidayMovieRoutes = require("./userHolidayMovieRoutes");
+const holidayMovieRoutes = require("./holidayMovieRoutes");
 const holidayRoutes = require("./holidayRoutes");
 
 router.use("/users", userRoutes);
 router.use("/movies", movieRoutes);
 router.use("/holidays", holidayRoutes);
-router.use("/create-relation", userHolidayMovieRoutes);
+router.use("/create-relation", holidayMovieRoutes);
 
 module.exports = router;

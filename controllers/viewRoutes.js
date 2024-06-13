@@ -1,10 +1,7 @@
 const router = require("express").Router();
-const { User, Movie, Holiday, UserHolidayMovie } = require("../models");
+const { User, Movie, Holiday, HolidayMovie } = require("../models");
 const withAuth = require("../utils/auth");
-const {
-  findMoviesByTitlePortion,
-  findMovieByTitle,
-} = require("../utils/movieDb");
+const {findMoviesByTitlePortion} = require("../utils/movieDb");
 const { Op, Sequelize } = require("sequelize");
 
 /* ---------------- RENDER HOMEPAGE ------------------------------------ */
@@ -123,30 +120,35 @@ router.get("/movies/search/:title", async (req, res) => {
 // Get all holidays
 router.get("/holidays", withAuth, async (req, res) => {
   try {
-    // Get all public holidays
-    const publicHolidayData = await Holiday.findAll({
-      where: {
-        public: true,
-      },
-    });
-    // Get all of user's created holidays
-    const myHolidayData = await Holiday.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-    });
+    // // Get all public holidays
+    // const publicHolidayData = await Holiday.findAll({
+    //   where: {
+    //     public: true,
+    //   },
+    // });
+    // // Get all of user's created holidays
+    // const myHolidayData = await Holiday.findAll({
+    //   where: {
+    //     user_id: req.session.user_id,
+    //   },
+    // });
 
-    // Get plain data for each
-    const publicHolidays = publicHolidayData.map((holiday) =>
-      holiday.get({ plain: true })
-    );
-    const myHolidays = myHolidayData.map((holiday) =>
-      holiday.get({ plain: true })
-    );
+    // // Get plain data for each
+    // const publicHolidays = publicHolidayData.map((holiday) =>
+    //   holiday.get({ plain: true })
+    // );
+    // const myHolidays = myHolidayData.map((holiday) =>
+    //   holiday.get({ plain: true })
+    // );
+
+    const holidayData = await Holiday.findAll()
+
+    const holidays = holidayData.map((holiday) => holiday.get({ plain: true }))
 
     res.render("holidays", {
-      publicHolidays,
-      myHolidays,
+      // publicHolidays,
+      // myHolidays,
+      holidays,
       logged_in: req.session.logged_in,
       session_user: req.session.user_id,
     });
@@ -162,13 +164,13 @@ router.get("/holidays/:id", withAuth, async (req, res) => {
   try {
     const holidayData = await Holiday.findByPk(id);
 
-    const userHolidayMovieData = await UserHolidayMovie.findAll({
+    const holidayMovieData = await holidayMovie.findAll({
       where: {
         holiday_id: id,
       },
       attributes: ["movie_id"],
     });
-    const movieIds = userHolidayMovieData.map(
+    const movieIds = holidayMovieData.map(
       (uhm) => uhm.get({ plain: true }).movie_id
     );
     console.log(movieIds);
@@ -204,13 +206,13 @@ router.get("/movies/:id", withAuth, async (req, res) => {
   try {
     const movieData = await Movie.findByPk(id);
 
-    const userHolidayMovieData = await UserHolidayMovie.findAll({
+    const holidayMovieData = await HolidayMovie.findAll({
       where: {
         movie_id: id,
       },
       attributes: ["holiday_id"],
     });
-    const holidayIds = userHolidayMovieData.map(
+    const holidayIds = holidayMovieData.map(
       (uhm) => uhm.get({ plain: true }).holiday_id
     );
     console.log(holidayIds);
