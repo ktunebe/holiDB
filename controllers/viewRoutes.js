@@ -164,14 +164,14 @@ router.get("/holidays/:id", withAuth, async (req, res) => {
   try {
     const holidayData = await Holiday.findByPk(id);
 
-    const holidayMovieData = await holidayMovie.findAll({
+    const holidayMovieData = await HolidayMovie.findAll({
       where: {
         holiday_id: id,
       },
       attributes: ["movie_id"],
     });
     const movieIds = holidayMovieData.map(
-      (uhm) => uhm.get({ plain: true }).movie_id
+      (holidayMovie) => holidayMovie.get({ plain: true }).movie_id
     );
     console.log(movieIds);
 
