@@ -4,9 +4,9 @@ const User = require("./User");
 const Movie = require("./Movie");
 const Holiday = require("./Holiday");
 
-class UserHolidayMovie extends Model {}
+class HolidayMovie extends Model {}
 
-UserHolidayMovie.init(
+HolidayMovie.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -36,6 +36,7 @@ UserHolidayMovie.init(
     association_score: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 1
     },
   },
   {
@@ -44,7 +45,13 @@ UserHolidayMovie.init(
     freezeTableName: true,
     underscored: true,
     modelName: "holiday_movie",
-  }
+    indexes: [
+      {
+        unique: true,
+        fields: ['movie_id', 'holiday_id'],
+      },
+    ],
+  },
 );
 
-module.exports = UserHolidayMovie;
+module.exports = HolidayMovie;

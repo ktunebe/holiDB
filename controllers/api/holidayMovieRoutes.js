@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const { UserHolidayMovie } = require("../../models");
+const { HolidayMovie } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
-    const newUserHolidayMovie = await UserHolidayMovie.create({
+    const newHolidayMovie = await HolidayMovie.create({
       ...req.body,
-      user_id: req.session.user_id,
     });
 
-    res.status(200).json(newUserHolidayMovie);
+    res.status(200).json(newHolidayMovie);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -16,21 +15,20 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const userHolidayMovieData = await UserHolidayMovie.destroy({
+    const holidayMovieData = await HolidayMovie.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
-    if (!userHolidayMovieData) {
+    if (!holidayMovieData) {
       res.status(404).json({
         message: "No user-holiday-movie relation found with this id!",
       });
       return;
     }
 
-    res.status(200).json(userHolidayMovieData);
+    res.status(200).json(holidayMovieData);
   } catch (err) {
     res.status(500).json(err);
   }
