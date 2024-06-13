@@ -7,13 +7,7 @@ Movie.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
       primaryKey: true,
-    },
-    tmdb_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: true,
     },
     title: {
       type: DataTypes.STRING,

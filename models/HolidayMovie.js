@@ -43,7 +43,7 @@ UserHolidayMovie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user_holiday_movie",
+    modelName: "holiday_movie",
   }
 );
 

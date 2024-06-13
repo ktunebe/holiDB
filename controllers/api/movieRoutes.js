@@ -6,17 +6,17 @@ const { addMovieByTitle } = require("../../utils/movieDb");
 router.post("/", async (req, res) => {
   console.log(`Movie post route hit - data: ${JSON.stringify(req.body)}`);
 
-  const { title, tmdb_id } = req.body;
+  const { title, id } = req.body;
 
-  if (!title && !tmdb_id) {
+  if (!title && !id) {
     res
       .status(406)
       .json({ message: "Bad request - Movie title or TMDB ID required." });
   }
 
-  if (!tmdb_id || tmdb_id === "") {
+  if (!id || id === "") {
     const movieDataFromTitle = await addMovieByTitle(title);
-    req.body.tmdb_id = JSON.parse(movieDataFromTitle).tmdb_id;
+    req.body.id = JSON.parse(movieDataFromTitle).id;
     req.body.title = JSON.parse(movieDataFromTitle).title;
     req.body.overview = JSON.parse(movieDataFromTitle).overview;
     req.body.poster_path = JSON.parse(movieDataFromTitle).poster_path;

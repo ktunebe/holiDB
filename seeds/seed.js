@@ -1,10 +1,10 @@
 const sequelize = require("../config/connection");
-const { User, Movie, Holiday, UserHolidayMovie } = require("../models");
+const { User, Movie, Holiday, HolidayMovie } = require("../models");
 
 const userData = require("./userData.json");
 const movieData = require("./movieData.json");
 const holidayData = require("./holidayData.json");
-const userHolidayMovieData = require("./userHolidayMovieData.json");
+const holidayMovieData = require("./holidayMovieData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -26,10 +26,9 @@ const seedDatabase = async () => {
     });
   }
 
-  for (const userHolidayMovie of userHolidayMovieData) {
-    await UserHolidayMovie.create({
-      ...userHolidayMovie,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+  for (const holidayMovie of holidayMovieData) {
+    await HolidayMovie.create({
+      ...holidayMovie,
     });
   }
 

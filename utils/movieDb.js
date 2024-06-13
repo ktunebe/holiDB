@@ -17,7 +17,7 @@ const addMovieByTitle = async (movieTitle) => {
       const size = 'w92';
       const fullPosterURL = `${baseURL}${size}${poster_path}`;
       const movieDetails = {
-        tmdb_id: id,
+        id,
         title,
         overview,
         poster_path: fullPosterURL,
@@ -55,7 +55,7 @@ const findMoviesByTitlePortion = async (movieTitle) => {
         const { id, title, overview, poster_path, popularity } = movie;
         const fullPosterURL = `${baseURL}${size}${poster_path}`;
         return {
-          tmdb_id: id,
+          id,
           title,
           overview,
           poster_path: fullPosterURL,
