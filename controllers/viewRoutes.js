@@ -206,33 +206,37 @@ router.get("/movies/:id", withAuth, async (req, res) => {
   try {
     const movieData = await Movie.findByPk(id);
 
-    const holidayMovieData = await HolidayMovie.findAll({
+    const allHolidayData = await Holiday.findAll();
+
+    const taggedHolidayMovieData = await HolidayMovie.findAll({
       where: {
         movie_id: id,
       },
       attributes: ["holiday_id"],
     });
-    const holidayIds = holidayMovieData.map(
+    const taggedHolidayIds = taggedHolidayMovieData.map(
       (uhm) => uhm.get({ plain: true }).holiday_id
     );
-    console.log(holidayIds);
+    console.log(taggedHolidayIds);
 
-    const holidayData = await Holiday.findAll({
+    const taggedHolidayData = await Holiday.findAll({
       where: {
         id: {
-          [Op.in]: holidayIds,
+          [Op.in]: taggedHolidayIds,
         },
       },
       attributes: ["name", "id"],
     });
 
-    const holidays = holidayData.map((holiday) => holiday.get({ plain: true }));
-
+    const allHolidays = allHolidayData.map((holiday) => holiday.get({ plain: true }))
+    const taggedHolidays = taggedHolidayData.map((holiday) => holiday.get({ plain: true }));
     const movie = movieData.get({ plain: true });
+
     console.log(movie);
     res.render("single-movie", {
       movie,
-      holidays,
+      taggedHolidays,
+      allHolidays,
       logged_in: req.session.logged_in,
       session_user: req.session.user_id,
     });

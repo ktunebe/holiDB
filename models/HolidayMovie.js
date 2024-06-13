@@ -36,6 +36,7 @@ HolidayMovie.init(
     association_score: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 1
     },
   },
   {
@@ -44,7 +45,13 @@ HolidayMovie.init(
     freezeTableName: true,
     underscored: true,
     modelName: "holiday_movie",
-  }
+    indexes: [
+      {
+        unique: true,
+        fields: ['movie_id', 'holiday_id'],
+      },
+    ],
+  },
 );
 
 module.exports = HolidayMovie;
