@@ -6,11 +6,32 @@
     <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
     <p class="mb-4">{{ movie.overview }}</p>
     {{#if taggedHolidays}}
-    <h3 class="inline-block pr-4">Tags: </h3>
-    {{#each taggedHolidays}}
-    <a class="px-2 py-0.5 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.name}} inline-block"
-      href="/holidays/{{ this.id }}">{{ this.name }}</a>
-    {{/each}}
+    <h3 id="holidayTags" class="inline-block pr-4">Tags: </h3>
+    
+      {{#each taggedHolidays}}
+      <span class="tag-item">
+        <a class="px-2 py-0.5 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.name}} inline-block"
+          href="/holidays/{{ this.id }}">{{ this.name }}</a>
+        <button class="delete-tag-btn" data-movie-id="{{../movie.id}}" data-holiday-id="{{this.id}}">Delete</button>
+      </span>
+      {{/each}}
+    
     {{/if}}
+   {{#if allHolidays.length}}
+  <div class="dropdown dropdown-hover">
+    <div tabindex="0" role="button" class="btn m-1">Tag a Holiday</div>
+    <ul id="themeDropdown" tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+      {{#each allHolidays}}
+        <li><a href="#" data-id="{{this.id}}" 
+        data-movie-id="{{../movie.id}}">{{ get_theme this.name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+        
+      
+    
   </div>
 </div>
+
+<script src="/js/movie-holiday-tag.js"> </script>
