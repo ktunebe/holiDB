@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Movie, Holiday, HolidayMovie } = require("../models");
 const withAuth = require("../utils/auth");
-const {findMoviesByTitlePortion} = require("../utils/movieDb");
+const { findMoviesByTitlePortion } = require("../utils/movieDb");
 const { Op, Sequelize } = require("sequelize");
 
 /* ---------------- RENDER HOMEPAGE ------------------------------------ */
@@ -99,24 +99,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-/* ---------------- GO TO USER DASHBOARD --------------------------------- */
-// Currently getting all movies
-router.get("/dashboard", withAuth, async (req, res) => {
-  try {
-    const movieData = await Movie.findAll();
-
-    const movies = movieData.map((movie) => movie.get({ plain: true }));
-
-    res.render("dashboard", {
-      movies,
-      logged_in: req.session.logged_in,
-      session_user: req.session.user_id,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 /* ----- SEARCH MOVIES BY TITLE, RENDER RESULTS PAGE -------------------------- */
 router.get("/movies/search/:title", async (req, res) => {
   const title = req.params.title;
@@ -147,34 +129,23 @@ router.get("/movies/search/:title", async (req, res) => {
 // Get all holidays
 router.get("/holidays", withAuth, async (req, res) => {
   try {
-    // // Get all public holidays
-    // const publicHolidayData = await Holiday.findAll({
-    //   where: {
-    //     public: true,
-    //   },
-    // });
-    // // Get all of user's created holidays
-    // const myHolidayData = await Holiday.findAll({
-    //   where: {
-    //     user_id: req.session.user_id,
-    //   },
-    // });
-
-    // // Get plain data for each
-    // const publicHolidays = publicHolidayData.map((holiday) =>
-    //   holiday.get({ plain: true })
-    // );
-    // const myHolidays = myHolidayData.map((holiday) =>
-    //   holiday.get({ plain: true })
-    // );
-
-    const holidayData = await Holiday.findAll()
+    const holidayData = await Holiday.findAll({
+      include: [
+        {
+          model: HolidayMovie,
+          include: [
+            {
+              model: Movie,
+            }
+          ],
+          order: [['association_score', 'DESC']],
+        }
+      ],
+    });
 
     const holidays = holidayData.map((holiday) => holiday.get({ plain: true }))
 
     res.render("holidays", {
-      // publicHolidays,
-      // myHolidays,
       holidays,
       logged_in: req.session.logged_in,
       session_user: req.session.user_id,
@@ -190,7 +161,7 @@ router.get("/holidays/:id", withAuth, async (req, res) => {
   const { id } = req.params;
   try {
     const holidayData = await Holiday.findByPk(id);
-
+    const allMovieData = await Movie.findAll();
     const holidayMovieData = await HolidayMovie.findAll({
       where: {
         holiday_id: id,
@@ -202,7 +173,7 @@ router.get("/holidays/:id", withAuth, async (req, res) => {
     );
     console.log(movieIds);
 
-    const movieData = await Movie.findAll({
+    const taggedMovieData = await Movie.findAll({
       where: {
         id: {
           [Op.in]: movieIds,
@@ -210,19 +181,50 @@ router.get("/holidays/:id", withAuth, async (req, res) => {
       },
     });
 
-    const movies = movieData.map((movie) => movie.get({ plain: true }));
-
+    const taggedMovies = taggedMovieData.map((movie) => movie.get({ plain: true }));
+    const allMovies = allMovieData.map((movie) => movie.get({ plain: true }));
     const holiday = holidayData.get({ plain: true });
+
     console.log(holiday);
     res.render("single-holiday", {
       holiday,
-      movies,
+      taggedMovies,
+      allMovies,
       logged_in: req.session.logged_in,
       session_user: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
     res.status(500).send("Error getting holiday.");
+  }
+});
+
+/* ---------------- ALL MOVIES PAGE --------------------------------- */
+router.get("/movies", withAuth, async (req, res) => {
+  try {
+    const movieData = await Movie.findAll({
+      include: [
+        {
+          model: HolidayMovie,
+          include: [
+            {
+              model: Holiday,
+            }
+          ],
+          order: [['association_score', 'DESC']],
+        }
+      ],
+    });
+
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
+
+    res.render("movies", {
+      movies,
+      logged_in: req.session.logged_in,
+      session_user: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

@@ -9,6 +9,10 @@ module.exports = {
         accent: 'var(--color-accent)',
         bg: 'var(--color-bg)',
       },
+      fontFamily: {
+        broadway: ['Broadway3D', 'sans-serif'],
+        undeveloped: ['Undeveloped', 'sans-serif'],
+      },
     },
   },
   plugins: [require("daisyui")],
