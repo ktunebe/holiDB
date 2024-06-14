@@ -5,60 +5,70 @@
   /* Default secondary color */
   --color-accent: #FFFFFF;
   --color-bg: #5b21b6;
+  --font-theme: broadway;
 }
 
 .theme-winter {
   --color-primary: #1e3a8a;
   --color-secondary: #bfdbfe;
   --color-accent: #f8fafc;
+  --font-theme: broadway;
 }
 
 .theme-independence {
   --color-primary: #0900ff;
   --color-secondary: #B31942;
   --color-accent: #ffffff;
+  --font-theme: broadway;
 }
 
 .theme-christmas {
   --color-primary: #378b29;
   --color-secondary: #ff0000;
   --color-accent: 	#ffffff;
+  --font-theme: broadway;
 }
 
 .theme-halloween {
   --color-primary: #ff6c00;
   --color-secondary: #000000;
   --color-accent: #000000;
+  --font-theme: broadway;
 }
 
 .theme-stpatricks {
   --color-primary: #274e13;
   --color-secondary: #9aff00;
   --color-accent: #6aa84f;
+  --font-theme: broadway;
 }
 
 .theme-easter {
   --color-primary: #f298f4;
   --color-secondary: #f7f396;
   --color-accent: #c1fda0;
+  --font-theme: broadway;
 }
 
 .theme-thanksgiving {
   --color-primary: #511f16;
   --color-secondary: #dbba33;
   --color-accent: #b6562a;
+  --font-theme: broadway;
 }
 
 .theme-valentines {
   --color-primary: #d60000;
   --color-secondary: #ffc5e6;
   --color-accent: #ffffff;
+  --font-theme: broadway;
 }
 
 .theme-newyears {
   --color-primary: #14054c;
   --color-secondary: #cfcfcf;
   --color-accent: #ffffff;
+  --font-theme: broadway;
 }
 
 /* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
@@ -8737,10 +8747,6 @@ html:has(.drawer-open.drawer-open) {
   inset-inline-end: 0.25rem;
 }
 
-.bottom-0 {
-  bottom: 0px;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -8816,27 +8822,18 @@ html:has(.drawer-open.drawer-open) {
   margin-right: auto;
 }
 
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .my-16 {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
 
-.mb-12 {
-  margin-bottom: 3rem;
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
-.mb-16 {
-  margin-bottom: 4rem;
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .mb-3 {
@@ -8845,6 +8842,10 @@ html:has(.drawer-open.drawer-open) {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .ml-2 {
@@ -8857,10 +8858,6 @@ html:has(.drawer-open.drawer-open) {
 
 .ml-6 {
   margin-left: 1.5rem;
-}
-
-.ml-8 {
-  margin-left: 2rem;
 }
 
 .mr-2 {
@@ -8889,14 +8886,6 @@ html:has(.drawer-open.drawer-open) {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.mt-auto {
-  margin-top: auto;
 }
 
 .box-border {
@@ -9048,16 +9037,12 @@ html:has(.drawer-open.drawer-open) {
   height: 100%;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
-.h-64 {
-  height: 16rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .w-3\/4 {
@@ -9090,14 +9075,6 @@ html:has(.drawer-open.drawer-open) {
 
 .w-full {
   width: 100%;
-}
-
-.w-1\/2 {
-  width: 50%;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
 }
 
 .flex-none {
@@ -10254,10 +10231,6 @@ html:has(.drawer-open.drawer-open) {
   padding: 2rem;
 }
 
-.p-4 {
-  padding: 1rem;
-}
-
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -10396,12 +10369,12 @@ html:has(.drawer-open.drawer-open) {
   vertical-align: super;
 }
 
-.font-broadway {
-  font-family: Broadway3D, sans-serif;
-}
-
 .font-undeveloped {
   font-family: Undeveloped, sans-serif;
+}
+
+.font-theme {
+  font-family: var(--font-theme);
 }
 
 .text-2xl {
@@ -10424,6 +10397,11 @@ html:has(.drawer-open.drawer-open) {
   line-height: 1;
 }
 
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .text-8xl {
   font-size: 6rem;
   line-height: 1;
@@ -10437,16 +10415,6 @@ html:has(.drawer-open.drawer-open) {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
 }
 
 .font-bold {
