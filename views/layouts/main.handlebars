@@ -56,16 +56,18 @@
             <li><a id="logout">Log Out</a></li>
           </ul>
         </div>
-          {{else}}
-          <a class="text-3xl mr-6 border-2 border-secondary rounded py-0.5 px-2" href="/login">Sign In/Sign Up</a></li>
-          {{/if}}
+        {{else}}
+        <a class="text-3xl mr-6 border-2 border-secondary rounded py-0.5 px-2" href="/login">Sign In/Sign Up</a></li>
+        {{/if}}
       </div>
     </div>
-    <main class="container container-fluid mt-5 mx-auto">
+    <main class="container container-fluid mt-5 mx-auto flex-grow">
       {{{ body }}}
     </main>
-    <footer>
-
+    <footer class="p-2 mt-aut bg-bg w-full border-2 border-secondary text-center">
+      <p class="text-xl pb-2">&copy; Team Rad 2024</p>
+      <img src="/images/tmdb-blue_square_2.svg" alt="TMDB blue square logo" class="size-[10%] inline-block self-start">
+      <p class="text-xl">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
     </footer>
   </div>
 
