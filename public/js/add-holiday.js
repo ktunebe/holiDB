@@ -79,11 +79,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
     .then(data => {
       console.log('Delete Success:', data);
-      // Remove the holiday entry from the DOM
-      const holidayElement = document.getElementById(`holiday-${id}`);
-      if (holidayElement) {
-        holidayElement.remove();
-      }
+      // Reload the page after deletion
+      window.location.reload();
     })
     .catch(error => {
       console.error('Error:', error);
