@@ -8,11 +8,11 @@ async function handleSearch(e) {
   const title = movieSearchField.value
 
   try {
-      const results = await fetch(`/movies/search/${title}`);
+      const results = await fetch(`/search/${title}`);
 
       movieSearchField.value = '';
 
-      window.location.href = `/movies/search/${title}`;
+      window.location.href = `/search/${title}`;
 
   } catch (error) {
     console.log('Error finding movies: ', error);

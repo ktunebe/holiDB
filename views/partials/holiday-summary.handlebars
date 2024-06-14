@@ -1,5 +1,7 @@
 <div class=" border-2 border-secondary mb-6">
   <a href="/holidays/{{ this.id }}" class="text-3xl font-bold underline">{{ this.name }} - {{format_date this.date }}</a>
     <p class="ml-6 py-4">{{ this.description }}</p>
+    {{#if this.delete_permission}}
     <button class="btn btn-danger" onclick="deleteHoliday({{ this.id }})">Delete</button>
+    {{/if}}
 </div>

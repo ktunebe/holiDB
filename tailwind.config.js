@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         broadway: ['Broadway3D', 'sans-serif'],
         undeveloped: ['Undeveloped', 'sans-serif'],
+        theme: 'var(--font-theme)'
       },
     },
   },
