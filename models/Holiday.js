@@ -22,6 +22,10 @@ Holiday.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    delete_permission: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   },
   {
     sequelize,

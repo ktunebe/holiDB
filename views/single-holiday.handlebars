@@ -1,9 +1,9 @@
 <div class="flex gap-4 pt-10">
   <div class="self-center">
-    <h2 class="font-bold text-4xl pb-2">{{ holiday.name }}</h2>
+    <h2 class="font-bold text-4xl pb-2 font-undeveloped">{{ holiday.name }}</h2>
     <p class="mb-12">{{ holiday.description }}</p>
     {{#if taggedMovies}}
-    <h3 class="ml-4 text-3xl">Movies: </h3>
+    <h3 class="ml-4 text-4xl font-undeveloped">Movies: </h3>
     {{#each taggedMovies}}
     {{> holidb-movie-summary}}
     {{/each}}
@@ -11,7 +11,7 @@
   </div>
 </div>
 
-{{!-- <div class="bg-secondary text-primary flex">
+<div class="bg-secondary text-primary flex">
   {{#each allMovies}}
   {{#if (no_dupes this.title ../taggedMovies)}}
   <div class="form-control">
@@ -29,4 +29,4 @@
   </div>
   {{/if}}
   {{/each}}
-</div> --}}
+</div>

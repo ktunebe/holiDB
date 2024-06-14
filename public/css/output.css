@@ -8737,6 +8737,10 @@ html:has(.drawer-open.drawer-open) {
   inset-inline-end: 0.25rem;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -8793,6 +8797,10 @@ html:has(.drawer-open.drawer-open) {
   clear: none;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -8813,6 +8821,16 @@ html:has(.drawer-open.drawer-open) {
   margin-bottom: 1.25rem;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -8831,6 +8849,10 @@ html:has(.drawer-open.drawer-open) {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .ml-6 {
@@ -8869,12 +8891,12 @@ html:has(.drawer-open.drawer-open) {
   margin-top: 1.5rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
+.mt-auto {
+  margin-top: auto;
 }
 
 .box-border {
@@ -8993,6 +9015,11 @@ html:has(.drawer-open.drawer-open) {
   height: 8rem;
 }
 
+.size-\[10\%\] {
+  width: 10%;
+  height: 10%;
+}
+
 .h-1 {
   height: 0.25rem;
 }
@@ -9021,6 +9048,14 @@ html:has(.drawer-open.drawer-open) {
   height: 100%;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -9037,6 +9072,10 @@ html:has(.drawer-open.drawer-open) {
   width: 12rem;
 }
 
+.w-52 {
+  width: 13rem;
+}
+
 .w-\[this-is\\\\\] {
   width: this-is\\;
 }
@@ -9051,6 +9090,14 @@ html:has(.drawer-open.drawer-open) {
 
 .w-full {
   width: 100%;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
 }
 
 .flex-none {
@@ -10056,6 +10103,11 @@ html:has(.drawer-open.drawer-open) {
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-base-100 {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+}
+
 .bg-bg {
   background-color: var(--color-bg);
 }
@@ -10202,6 +10254,10 @@ html:has(.drawer-open.drawer-open) {
   padding: 2rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -10340,6 +10396,10 @@ html:has(.drawer-open.drawer-open) {
   vertical-align: super;
 }
 
+.font-broadway {
+  font-family: Broadway3D, sans-serif;
+}
+
 .font-undeveloped {
   font-family: Undeveloped, sans-serif;
 }
@@ -10377,6 +10437,16 @@ html:has(.drawer-open.drawer-open) {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
 }
 
 .font-bold {

@@ -23,7 +23,7 @@
     <ul id="themeDropdown" tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
       {{#each allHolidays}}
         <li><a href="#" data-id="{{this.id}}" 
-        data-movie-id="{{../movie.id}}">{{ get_theme this.name}}</a></li>
+        data-movie-id="{{../movie.id}}">{{ this.name}}</a></li>
       {{/each}}
     </ul>
   </div>
