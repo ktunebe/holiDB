@@ -26,7 +26,7 @@
         <ul>
           {{#each matchedTmdbMovies}}
           {{!-- Use helper to omit results already in HoliDB --}}
-          {{#if (no_dupes this.title ../matchedHoliDbMovies)}}
+          {{#if (no_movie_dupes this.title ../matchedHoliDbMovies)}}
             <li>
               {{> tmdb-movie-summary}}
             </li>

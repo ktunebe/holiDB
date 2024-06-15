@@ -1,6 +1,6 @@
 {{!-- Movie summary with links --}}
 <div class="flex gap-4 pt-10">
-  <div class=" flex-none w-32 h-32 self-center">
+  <div class="flex-none w-32 h-32 self-center">
     <a href="/movies/{{ this.id }}">
       <img class="object-contain w-full h-full" src="{{ this.poster_path }}" alt="movie poster image may not available"></img>
     </a>
@@ -11,7 +11,7 @@
     </a>
     <p class="py-2">{{ this.overview }}</p>
     {{#each this.holiday_movies}}
-    <a class="px-2 py-0.5 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.holiday.name}} inline-block"
+    <a class="px-2 py-0.5 m-2 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.holiday.name}} inline-block"
       href="/holidays/{{ this.holiday.id }}">{{ this.holiday.name }}</a>
     {{/each}}
   </div>
