@@ -34,7 +34,7 @@
   --font-theme: broadway;
 }
 
-.theme-stpatricks {
+.theme-patrick {
   --color-primary: #274e13;
   --color-secondary: #9aff00;
   --color-accent: #6aa84f;
@@ -55,14 +55,14 @@
   --font-theme: broadway;
 }
 
-.theme-valentines {
+.theme-valentine {
   --color-primary: #d60000;
   --color-secondary: #ffc5e6;
   --color-accent: #ffffff;
   --font-theme: broadway;
 }
 
-.theme-newyears {
+.theme-year {
   --color-primary: #14054c;
   --color-secondary: #cfcfcf;
   --color-accent: #ffffff;

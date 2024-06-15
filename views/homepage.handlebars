@@ -1,33 +1,27 @@
-<div class="flex">
-  <div class="w-3/4">
-    <h2
-      class="text-center font-bold text-4xl border-2 border-secondary rounded-full py-4"
-    >Countdown to {{nextHoliday.name}}: <span id="countdown"></span></h2>
-    <input type="hidden" id="holidayDate" value="{{nextHoliday.date}}" />
-    <h3 class="mt-6 text-3xl font-bold text-center">{{nextHoliday.name}}
-      Movies</h3>
-    {{#if associatedMovies.length}}
-      <ul>
-        {{#each associatedMovies}}
-          {{!-- <li>
-            <a href="/movies/{{this.id}}">
-              <h3>{{this.title}}</h3>
-              <p>{{this.overview}}</p>
-              <img
-                src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
-                alt="{{this.title}}"
-              />
-            </a>
-          </li> --}}
-          {{> holidb-movie-summary}}
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No movies associated with this holiday.</p>
-    {{/if}}
-  </div>
-  <div>
-
-  </div>
+<div class="w-3/4 mx-auto">
+  <h2 class="text-center font-bold text-4xl border-2 border-secondary rounded-full py-4">Countdown to
+    {{nextHoliday.name}}:
+    <br>
+    <span id="countdown"></span></h2>
+  <input type="hidden" id="holidayDate" value="{{nextHoliday.date}}" />
+  <h3 class="mt-6 text-3xl font-bold text-center">{{nextHoliday.name}}
+    Movies</h3>
+  {{#if associatedMovies.length}}
+  <ul>
+    {{#each associatedMovies}}
+    {{!-- <li>
+      <a href="/movies/{{this.id}}">
+        <h3>{{this.title}}</h3>
+        <p>{{this.overview}}</p>
+        <img src="https://image.tmdb.org/t/p/w500{{this.poster_path}}" alt="{{this.title}}" />
+      </a>
+    </li> --}}
+    {{> holidb-movie-summary}}
+    {{/each}}
+  </ul>
+  {{else}}
+  <p>No movies associated with this holiday.</p>
+  {{/if}}
 </div>
+
 <script src="/js/countdown-timer.js"></script>

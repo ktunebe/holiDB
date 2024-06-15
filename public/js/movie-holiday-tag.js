@@ -42,7 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
           event.preventDefault();
           const movieId = button.getAttribute('data-movie-id');
           const holidayId = button.getAttribute('data-holiday-id');
-    
+
+          // Confirm delete
+          const confirmed = window.confirm('Are you sure you want to delete this holiday tag?');
+          // If the user cancels, don't delete the tag
+          if (!confirmed) {
+            return;
+          }
+
           try {
             const response = await fetch(`/api/create-relation/${movieId}/${holidayId}`, {
               method: 'DELETE',

@@ -18,7 +18,7 @@
     "delete_permission": "false"
   },
   {
-    "name": "StPatricks Day",
+    "name": "St. Patrick's Day",
     "date": "2001-03-17T06:00:00.000Z",
     "description": "Celebrated on March 17, St. Patrick's Day honors St. Patrick, the patron saint of Ireland. It features parades, wearing green, and public festivals with Irish food, music, and dancing. Symbols include shamrocks and leprechauns.",
     "delete_permission": "false"
@@ -36,13 +36,13 @@
         "delete_permission": "false"
         },
         {
-          "name": "Valentines",
+          "name": "Valentine's Day",
           "date": "2001-02-14T06:00:00.000Z",
           "description": "Valentine's Day, on February 14, celebrates love and affection between partners. Traditions include exchanging cards, flowers, and gifts, as well as romantic dinners. It originated as a feast day for Saint Valentine.",
           "delete_permission": "false"
           },
           {
-            "name": "NewYears (US)",
+            "name": "New Year's Day (US)",
             "date": "2001-01-01T06:00:00.000Z",
             "description": "New Year's Day, on January 1, marks the start of the year. Celebrations begin on New Year's Eve with parties and fireworks. At midnight, people toast, cheer, and make resolutions for the new year. It's a time for hope and renewal.",
             "delete_permission": "false"
