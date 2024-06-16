@@ -9,9 +9,16 @@ const { Op, Sequelize } = require("sequelize");
 // Getting all movies right now, will change what is actually displayed
 router.get("/", async (req, res) => {
   try {
-    // Define the current date without the year
     const today = new Date();
-    const todayWithoutYear = `${today.getMonth() + 1}-${today.getDate()}`;
+    const month = today.getMonth() + 1; // getMonth() is zero-based
+    const day = today.getDate();
+
+    // Month and Day are always 2 digits
+    const todayWithoutYear = `${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+
+    console.log(`Today's date (MM-DD): ${todayWithoutYear}`);
+
+    
 
     // Find the next holiday ignoring the year
     let nextHoliday = null;
