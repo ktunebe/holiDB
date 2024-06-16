@@ -1,18 +1,21 @@
 {{!-- Movie summary with links --}}
-<div class="flex gap-4 pt-10">
-  <div class="flex-none w-32 h-32 self-center">
+<div class="flex max-[350px]:gap-1 gap-2 lg:gap-4 pt-10">
+  <div class="flex-none max-[350px]:w-24 max-[350px]:h-24 w-32 h-32 self-center">
     <a href="/movies/{{ this.id }}">
       <img class="object-contain w-full h-full" src="{{ this.poster_path }}" alt="movie poster image may not available"></img>
     </a>
   </div>
   <div class="self-center">
     <a class="inline-block" href="/movies/{{ this.id }}">
-      <h2 class="font-bold text-2xl pb-2">{{ this.title }}</h2>
+      <h2 class="font-bold max-[350px]:text-xl text-2xl pb-2">{{ this.title }}</h2>
     </a>
     <p class="py-2">{{ this.overview }}</p>
+    <div class="flex flex-wrap items-start px-2">
     {{#each this.holiday_movies}}
-    <a class="px-2 py-0.5 m-2 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.holiday.name}} inline-block"
-      href="/holidays/{{ this.holiday.id }}">{{ this.holiday.name }}</a>
+      <a class="px-2 py-0.5 m-2 rounded-2xl bg-primary text-accent border-2 border-secondary theme-{{get_theme this.holiday.name}} inline-block"
+        href="/holidays/{{ this.holiday.id }}">{{ this.holiday.name }}</a>
     {{/each}}
+    </div>
   </div>
 </div>
+<div class="mx-auto my-4 border-t-2 border-secondary w-2/3"></div>

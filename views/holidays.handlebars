@@ -1,45 +1,50 @@
 <div class="mb-12">
-  <h2 class="text-5xl pb-5 text-center">Holidays</h2>
-<button class="btn justify-center" onclick="my_modal_1.showModal()">Add New Holiday</button>
-  {{#each holidays}}
+  <h2 class="text-5xl font-bold pb-5 text-center">Holidays</h2>
+  <div class="text-center">
+    <button class="btn bg-secondary text-primary w-1/4 text-sm sm:text-base lg:text-2xl my-6"
+      onclick="my_modal_1.showModal()">Add New</button>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {{#each holidays}}
     {{> holiday-summary}}
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
 
-    <!-- Open the modal using ID.showModal() method -->
+<!-- Open the modal using ID.showModal() method -->
 <dialog id="my_modal_1" class="modal">
-    <div class="modal-box">
-      <h3 class="font-bold text-center text-lg">Add New Holiday</h3>
-      <form id="holidayForm">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Holiday Name</span>
-          </label>
-          <input type="text" id="holidayName" class="input input-bordered" required />
-        </div>
-         <div class="form-control">
-          <label class="label">
-            <span class="label-text">Holiday Date</span>
-          </label>
-          <input type="text" id="holidayDate" class="input input-bordered" required />
-        </div>
-        <div class="form-control mt-4">
-          <label class="label">
-            <span class="label-text">Description</span>
-          </label>
-          <textarea id="holidayDescription" class="textarea textarea-bordered" required></textarea>
-        </div>
-        <div class="modal-action">
-          <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </form>
-      <button class="btn" onclick="closeModal()">Close</button>
-    </div>
-  </dialog>
+  <div class="modal-box">
+    <h3 class="font-bold text-center text-lg">Add New Holiday</h3>
+    <form id="holidayForm">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Holiday Name</span>
+        </label>
+        <input type="text" id="holidayName" class="input input-bordered" required />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Holiday Date</span>
+        </label>
+        <input type="date" id="holidayDate" class="input input-bordered" required />
+      </div>
+      <div class="form-control mt-4">
+        <label class="label">
+          <span class="label-text">Description</span>
+        </label>
+        <textarea id="holidayDescription" class="textarea textarea-bordered" required></textarea>
+      </div>
+      <div class="modal-action">
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+    <button class="btn" onclick="closeModal()">Close</button>
+  </div>
+</dialog>
 
 </div>
 
 <script src="/js/add-holiday.js"> </script>
-  
+
 </div>

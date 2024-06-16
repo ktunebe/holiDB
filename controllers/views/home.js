@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const { User, Movie, Holiday, HolidayMovie } = require("../../models");
-const withAuth = require("../../utils/auth");
-const { findMoviesByTitlePortion } = require("../../utils/movieDb");
+const { Movie, Holiday, HolidayMovie } = require("../../models");
 const { Op, Sequelize } = require("sequelize");
 
 

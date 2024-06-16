@@ -1,7 +1,8 @@
-<h2 class="text-5xl">My Movies</h2>
+<h2 class="max-[350px]:text-3xl text-4xl lg:text-5xl font-bold text-center">Browse Movies</h2>
 
-  <div class="mb-12">
-    {{#each movies}}
-      {{> holidb-movie-summary}}
-    {{/each}}
-  </div>
+<div class="mb-12">
+  {{#each movies}}
+  {{> holidb-movie-summary}}
+  {{/each}}
+</div>
+<div class="text-center"><a href="#nav" class="btn bg-secondary text-primary w-1/4 text-sm sm:text-base lg:text-2xl">Back to Top</a></div>
