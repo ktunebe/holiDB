@@ -2,7 +2,8 @@ const router = require("express").Router();
 const { Movie, Holiday, HolidayMovie } = require("../../models");
 const withAuth = require("../../utils/auth");
 const { Op, Sequelize } = require("sequelize");
-
+const { MovieDb } = require("moviedb-promise");
+const moviedb = new MovieDb(process.env.API_KEY);
 
 // `/movies` endpoint
 
@@ -16,10 +17,10 @@ router.get("/", withAuth, async (req, res) => {
           include: [
             {
               model: Holiday,
-            }
+            },
           ],
-          order: [['association_score', 'DESC']],
-        }
+          order: [["association_score", "DESC"]],
+        },
       ],
     });
 
@@ -53,7 +54,6 @@ router.get("/:id", withAuth, async (req, res) => {
     const taggedHolidayIds = taggedHolidayMovieData.map(
       (uhm) => uhm.get({ plain: true }).holiday_id
     );
-    console.log(taggedHolidayIds);
 
     const taggedHolidayData = await Holiday.findAll({
       where: {
@@ -64,11 +64,23 @@ router.get("/:id", withAuth, async (req, res) => {
       attributes: ["name", "id"],
     });
 
-    const allHolidays = allHolidayData.map((holiday) => holiday.get({ plain: true }))
-    const taggedHolidays = taggedHolidayData.map((holiday) => holiday.get({ plain: true }));
+    const allHolidays = allHolidayData.map((holiday) =>
+      holiday.get({ plain: true })
+    );
+    const taggedHolidays = taggedHolidayData.map((holiday) =>
+      holiday.get({ plain: true })
+    );
     const movie = movieData.get({ plain: true });
 
-    console.log(movie);
+    // Fetch trailers for the movie using TMDB API
+    const tmdbId = movie.id; // Assuming you have the TMDB ID stored in your movie model
+    const trailersRes = await moviedb.movieVideos(tmdbId);
+    const trailers = trailersRes.results
+      .filter((video) => video.type === "Trailer" && video.site === "YouTube")
+      .map((video) => `https://www.youtube.com/embed/${video.key}`);
+
+    movie.trailers = trailers;
+
     res.render("single-movie", {
       movie,
       taggedHolidays,
@@ -82,5 +94,4 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-
-module.exports = router
+module.exports = router;

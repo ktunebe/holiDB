@@ -1,7 +1,7 @@
 <div class="max-[350px]:flex-col flex gap-4 pt-10">
   <div class="flex-none w-32 h-32 self-center">
     <img class="object-contain w-full h-full" src="{{ movie.poster_path }}"
-      alt="movie poster image may not available"></img>
+      alt="movie poster image may not available">
   </div>
     <div class="max-[350px]:px-4">
       <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
@@ -39,5 +39,29 @@
       </div>
     </div>
     {{/if}}
+
+  <!-- Trailer Section -->
+  {{#if movie.trailers.length}}
+    <div class="flex flex-col min-[350px]:flex-row">
+      <div class="pr-4 flex-none w-32 self-center">
+      </div>
+      <div class="flex flex-wrap items-start px-2 min-[350px]:border-l-2 border-secondary">
+        <div class="trailer-section mt-10">
+      
+        <h3 class="font-bold text-xl mb-4">Trailers</h3>
+        <div class="trailers flex flex-col gap-4">
+          {{#each movie.trailers}}
+            <iframe class="trailer" width="560" height="315" src="{{this}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {{/each}}
+        </div>
+      {{else}}
+        <p>No trailers available.</p>
+      {{/if}}
+    </div>
+      </div>
+    </div>
+
+    
+    
 
 <script src="/js/movie-holiday-tag.js"> </script>
