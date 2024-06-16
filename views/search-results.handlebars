@@ -1,10 +1,10 @@
 <div>
-  <h2 class="text-center text-5xl font-bold pb-6">Search Results</h2>
+  <h2 class="text-center max-[350px]:text-3xl text-4xl lg:text-5xl font-bold pb-6">Search Results</h2>
   {{!-- If search matches part of title in HoliDB, display each result --}}
     <div class="py-4">
-      <h3 class="text-7xl font-undeveloped text-center">HoliDB</h3>
+      <h3 class="max-[350px]:text-3xl text-5xl lg:text-7xl font-undeveloped text-center">HoliDB</h3>
       {{#if matchedHoliDbMovies}}
-      <h4 class="text-3xl font-bold text-center pt-8">HoliDB Movies</h4>
+      <h4 class="max-[350px]:text-xl text-2xl lg:text-3xl font-bold text-center pt-8">HoliDB Movies</h4>
         <ul pb-8>
           {{#each matchedHoliDbMovies}}
             <li>
@@ -20,7 +20,7 @@
     <div class="pt-4 my-16">
       {{#if matchedTmdbMovies}}
       <div class="text-center flex flex-col">
-        <img src="/images/tmbd-blue_long_2.svg" alt="TMBD long logo" class="w-1/2 self-center">
+        <a href="https://www.themoviedb.org/" target="_blank" class="w-1/2 self-center"><img src="/images/tmbd-blue_long_2.svg" alt="TMBD long logo" ></a>
         <h3 class="text-3xl font-bold pt-8">Add Movies From TMDB</h3>
       </div>
         <ul>
