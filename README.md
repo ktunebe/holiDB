@@ -8,7 +8,7 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
 
 ## Screenshot
 
-![homepage screenshot](images/holiDB-homepage-screenshot.png)
+![homepage screenshot](public/images/holiDB-homepage-screenshot.png)
   
   ## Table of Contents
   * [Installation](#installation)
@@ -19,7 +19,8 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
   * [Successes](#successes)
 
   ## App live at
-  insert deployed app here
+
+  * https://holidb.onrender.com/
 
   ## Installation
 
@@ -68,8 +69,9 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
   * Frontend decisions such as color, themes, fonts quickly decided on. 
   * Developing dynamic buttons that heavily change the functionality/display of the page. 
 
-  ## Video Demo Link
-  render link here again
+  ## App Link
+ 
+  * https://holidb.onrender.com/
 
   
 
