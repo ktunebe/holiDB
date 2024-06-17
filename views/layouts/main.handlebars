@@ -2,83 +2,79 @@
 <html lang="en" class="h-full bg-bg">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HoliDB</title>
-  <link href="/css/output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoliDB</title>
+    <link href="/css/output.css" rel="stylesheet">
 </head>
 
 <body class="h-full text-secondary max-[450px]:text-base text-lg">
-  <div class="w-full min-h-screen flex flex-col">
-    {{!-- Nav --}}
-    <div class="navbar border-2 rounded border-secondary" id="nav">
-      <div class="navbar-start">
-        {{!-- Search Icon/Search Form Dropdown --}}
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-circle ml-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
+    <div class="w-full min-h-screen flex flex-col">
+        {{!-- Nav --}}
+        <div class="navbar border-2 rounded border-secondary" id="nav">
+            <div class="navbar-start">
+                {{!-- Search Icon/Search Form Dropdown --}}
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-          </div>
-          <ul tabindex="0"
-            class="menu menu-sm dropdown-content mt-3 z-[1] px-4 shadow text-xl bg-secondary text-primary rounded-box text-nowrap">
-            <form id="movieSearchForm">
-              <label for="movie-search">Search For Movie: </label>
-              <input class="px-1.5 py-1" type="text" id="movieSearchField" />
-              <button type="submit" class="mx-2 px-2 py-0.5 border-2 rounded-xl border-primary">Search</button>
-            </form>
-          </ul>
-        </div>
-      </div>
-      {{!-- Main Heading w/ Link to Home --}}
-      <div class="navbar-center">
-        <h1>
-          <a href="/" class="max-[450px]:text-3xl text-5xl sm:text-7xl lg:text-9xl font-undeveloped">HoliDB</a>
-        </h1>
-      </div>
-      <div class="navbar-end">
-        {{!-- Options dropdown with nav links if logged in --}}
-        {{#if logged_in}}
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-circle mr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] px-4 shadow text-xl bg-secondary text-primary rounded-box text-nowrap max-w-full">
+                        <form id="movieSearchForm" class="max-w-full flex flex-col sm:flex-row items-center sm:items-start">
+                            <label for="movie-search" class="mb-2 sm:mb-0 sm:mr-2">Search For Movie:&nbsp;</label>
+                            <div class="flex flex-col sm:flex-row sm:items-center">
+                                <input class="px-1.5 py-1 max-w-full sm:w-auto" type="text" id="movieSearchField" placeholder="Enter movie title..." />
+                                <button type="submit" class="mx-2 px-2 py-0.5 border-2 rounded-xl border-primary mt-2 sm:mt-0">Search</button>
+                            </div>
+                        </form>
+
+                    </ul>
+                </div>
+            </div>
+            {{!-- Main Heading w/ Link to Home --}}
+            <div class="navbar-center">
+                <h1>
+                    <a href="/" class="max-[450px]:text-3xl text-5xl sm:text-7xl lg:text-9xl font-undeveloped">HoliDB</a>
+                </h1>
+            </div>
+            <div class="navbar-end">
+                {{!-- Options dropdown with nav links if logged in --}} {{#if logged_in}}
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
             </svg>
-          </div>
-          <ul tabindex="0"
-            class="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-48 text-xl bg-secondary text-primary">
-            <li><a href="/">Homepage</a></li>
-            <li><a href="/movies">Movies</a></li>
-            <li><a href="/holidays">Holidays</a></li>
-            <li><a id="logout">Log Out</a></li>
-          </ul>
+                    </div>
+                    <ul tabindex="0" class="menu dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-48 text-xl bg-secondary text-primary">
+                        <li><a href="/">Homepage</a></li>
+                        <li><a href="/movies">Movies</a></li>
+                        <li><a href="/holidays">Holidays</a></li>
+                        <li><a id="logout">Log Out</a></li>
+                    </ul>
+                </div>
+                {{!-- Sign In/Sign Up button if not logged in --}} {{else}}
+                <a class="max-[450px]:text-base text-xl lg:text-3xl ml-4 text-center border-secondary rounded py-0.5 px-2" href="/login">Log In/Sign Up</a></li>
+                {{/if}}
+            </div>
         </div>
-        {{!-- Sign In/Sign Up button if not logged in --}}
-        {{else}}
-        <a class="max-[450px]:text-base text-xl lg:text-3xl ml-4 text-center border-secondary rounded py-0.5 px-2" href="/login">Log In/Sign Up</a></li>
-        {{/if}}
-      </div>
+        <main class="container container-fluid mt-5 mx-auto flex-grow">
+            {{{ body }}}
+        </main>
+        <footer class="p-2 mt-10 bg-bg w-full border-2 rounded border-secondary text-center">
+            <p class="text-xl pb-2">&copy; Team Rad 2024</p>
+            {{!-- TMDB logo with link to TMBD --}}
+            <a href="https://www.themoviedb.org/" target="_blank"><img src="/images/tmdb-blue_square_2.svg" alt="TMDB blue square logo" class="size-[10%] inline-block self-start"></a>
+            {{!-- Disclaimer per TMDB --}}
+            <p class="text-xl">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        </footer>
     </div>
-    <main class="container container-fluid mt-5 mx-auto flex-grow">
-      {{{ body }}}
-    </main>
-    <footer class="p-2 mt-10 bg-bg w-full border-2 rounded border-secondary text-center">
-      <p class="text-xl pb-2">&copy; Team Rad 2024</p>
-      {{!-- TMDB logo with link to TMBD --}}
-      <a href="https://www.themoviedb.org/" target="_blank"><img src="/images/tmdb-blue_square_2.svg"
-          alt="TMDB blue square logo" class="size-[10%] inline-block self-start"></a>
-      {{!-- Disclaimer per TMDB --}}
-      <p class="text-xl">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-    </footer>
-  </div>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-  <script src="/js/search-movie.js"></script>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    <script src="/js/search-movie.js"></script>
 </body>
 
 </html>
