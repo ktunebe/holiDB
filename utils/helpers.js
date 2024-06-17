@@ -24,11 +24,11 @@ module.exports = {
 	/* ---------------------------------------------------------------------------- */
 	// Get theme from holiday name
 	get_theme: (name) => {
-		const holidayFirstSplit = name.toLowerCase().split(" day")[0].split("'")[0]
+		const holidayFirstSplit = name.toLowerCase().split(" day")[0].split("'")[0];
 		if (holidayFirstSplit.split(" ")[1]) {
-			return holidayFirstSplit.split(" ")[1]
+			return holidayFirstSplit.split(" ")[1];
 		} else {
-			return holidayFirstSplit
+			return holidayFirstSplit;
 		}
 	},
 	/* ---------------------------------------------------------------------------- */

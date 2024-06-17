@@ -1,17 +1,20 @@
+{{!-- Show single holiday with related movies --}}
 <div class="card shadow-xl theme-{{ get_theme holiday.name }} bg-primary text-accent border-4 border-secondary mb-6">
   <div class="card-body">
-    <h2 class="card-title text-3xl mb-3">{{holiday.name}}</h2>
+    <div class="flex justify-between">
+      <h2 class="card-title text-3xl mb-3">{{ holiday.name }}</h2>
+      <h2 class="card-title text-3xl mb-3">{{ format_date holiday.date }}</h2>
+    </div>
     <p>{{ holiday.description }}</p>
     <div class="card-actions justify-end">
-        {{#if holiday.delete_permission }}
-        {{ format_date holiday.date }}
-        {{/if}}
+    </div>
   </div>
 </div>
-{{#if taggedMovies}}
-<h3 class="ml-4 text-4xl">Related Movies: </h3>
-{{#each taggedMovies}}
-{{> holidb-movie-summary}}
-{{/each}}
-{{/if}}
+<div>
+  {{#if taggedMovies }}
+  <h3 class="ml-4 text-4xl">Related Movies: </h3>
+  {{#each taggedMovies }}
+  {{> holidb-movie-summary }}
+  {{/each}}
+  {{/if}}
 </div>
