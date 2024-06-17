@@ -8,7 +8,7 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
 
 ## Screenshot
 
-![homepage screenshot](public/images/holiDB-homepage-screenshot.png)
+![homepage screenshot](public/images/holidb-homepage-screenshot.png)
   
   ## Table of Contents
   * [Installation](#installation)
