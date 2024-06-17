@@ -8,6 +8,7 @@
   <input type="hidden" id="holidayDate" value="{{nextHoliday.date}}" />
   <h3 class="mt-6 max-[450px]:text-2xl text-3xl font-bold text-center">{{nextHoliday.name}}
     Movies</h3>
+    <br>
   {{!-- Show movies tagged with upcoming holidays, or mention that there are no holidays tagged --}}
   {{#if associatedMovies.length}}
   <ul>
@@ -16,7 +17,7 @@
     {{/each}}
   </ul>
   {{else}}
-  <p>No movies associated with this holiday.</p>
+  <p class="text-center">No movies associated with this holiday.</p>
   {{/if}}
 </div>
 
