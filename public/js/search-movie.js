@@ -1,24 +1,22 @@
-const movieSearchField = document.getElementById('movieSearchField')
-const movieSearchForm = document.getElementById('movieSearchForm')
+const movieSearchField = document.getElementById("movieSearchField");
+const movieSearchForm = document.getElementById("movieSearchForm");
 
 // Search for movie title from search bar
 async function handleSearch(e) {
-  e.preventDefault()
+	e.preventDefault();
 
-  const title = movieSearchField.value
+	const title = movieSearchField.value;
 
-  try {
-      const results = await fetch(`/search/${title}`);
+	try {
+		const results = await fetch(`/search/${title}`);
 
-      movieSearchField.value = '';
+		movieSearchField.value = "";
 
-      window.location.href = `/search/${title}`;
-
-  } catch (error) {
-    console.log('Error finding movies: ', error);
-  }
+		window.location.href = `/search/${title}`;
+	} catch (error) {
+		console.log("Error finding movies: ", error);
+	}
 }
 
 // Event listener for movie search
-movieSearchForm.addEventListener('submit', handleSearch)
-
+movieSearchForm.addEventListener("submit", handleSearch);

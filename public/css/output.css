@@ -1,3 +1,5 @@
+/* COLOR THEMES */
+
 :root {
   --color-primary: #5b21b6;
   /* Default primary color */
@@ -5,70 +7,60 @@
   /* Default secondary color */
   --color-accent: #FFFFFF;
   --color-bg: #5b21b6;
-  --font-theme: broadway;
 }
 
 .theme-winter {
   --color-primary: #1e3a8a;
   --color-secondary: #bfdbfe;
   --color-accent: #f8fafc;
-  --font-theme: broadway;
 }
 
 .theme-independence {
   --color-primary: #0900ff;
   --color-secondary: #B31942;
   --color-accent: #ffffff;
-  --font-theme: broadway;
 }
 
 .theme-christmas {
   --color-primary: #378b29;
   --color-secondary: #ff0000;
   --color-accent: 	#ffffff;
-  --font-theme: broadway;
 }
 
 .theme-halloween {
   --color-primary: #000000;
   --color-secondary: #ff6c00;
   --color-accent: #ff6c00;
-  --font-theme: broadway;
 }
 
 .theme-patrick {
   --color-primary: #274e13;
   --color-secondary: #6aa84f;
   --color-accent: #9aff00;
-  --font-theme: broadway;
 }
 
 .theme-easter {
   --color-primary: #f298f4;
   --color-secondary: #f7f396;
   --color-accent: #c1fda0;
-  --font-theme: broadway;
 }
 
 .theme-thanksgiving {
   --color-primary: #511f16;
   --color-secondary: #dbba33;
   --color-accent: #b6562a;
-  --font-theme: broadway;
 }
 
 .theme-valentine {
   --color-primary: #d60000;
   --color-secondary: #ffc5e6;
   --color-accent: #ffffff;
-  --font-theme: broadway;
 }
 
 .theme-year {
   --color-primary: #14054c;
   --color-secondary: #cfcfcf;
   --color-accent: #ffffff;
-  --font-theme: broadway;
 }
 
 /* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
@@ -10434,19 +10426,14 @@ html:has(.drawer-open.drawer-open) {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -10919,37 +10906,18 @@ html:has(.drawer-open.drawer-open) {
   forced-color-adjust: none;
 }
 
-/* Make it so disabled buttons turn gray instead of transparent */
+/* Make it so disabled buttons turn gray instead of transparent (not currently using) */
 
-.btn.btn-disabled {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
+/* .btn.btn-disabled {
+  @apply bg-gray-200 text-black;
+} */
 
-@font-face {
-  font-family: 'Broadway3D';
-
-  src: url('../fonts/Broadway3D.ttf') format('truetype');
-}
+/* HoliDB Logo Font (freeware) */
 
 @font-face {
   font-family: 'Undeveloped';
 
   src: url('../fonts/UndevelopedBook.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Ringbearer';
-
-  src: url('../fonts/RingbearerMedium.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Test';
-
-  src: url('../fonts/EduNSWACTFoundation-Bold.ttf') format('truetype');
 }
 
 @media (hover:hover) {
@@ -11144,11 +11112,6 @@ html:has(.drawer-open.drawer-open) {
 @media (min-width: 768px) {
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 

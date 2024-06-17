@@ -1,67 +1,74 @@
+{{!-- Show single movie with tagged holidays --}}
 <div class="max-[350px]:flex-col flex gap-4 pt-10">
   <div class="flex-none w-32 h-32 self-center">
-    <img class="object-contain w-full h-full" src="{{ movie.poster_path }}"
-      alt="movie poster image may not available">
+    <img class="object-contain w-full h-full" src="{{ movie.poster_path }}" alt="{{ movie.title }} poster">
   </div>
-    <div class="max-[350px]:px-4">
-      <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
-      <p class="mb-4">{{ movie.overview }}</p>
+  <div class="max-[350px]:px-4">
+    <h2 class="font-bold text-2xl pb-2">{{ movie.title }}</h2>
+    <p class="mb-4">{{ movie.overview }}</p>
+  </div>
+</div>
+<div class="flex flex-col min-[350px]:flex-row">
+  {{#if taggedHolidays}}
+  <div class="pr-4 flex-none w-32 self-center">
+    <h3 id="holidayTags"
+      class="py-2 m-1 min-[350px]:border-none border-b-2 border-secondary font-bold text-center min-[350px]:text-right">
+      Tags </h3>
+    {{/if}}
+    <div class="dropdown dropdown-hover">
+      <div tabindex="0" role="button" class="btn m-1 bg-secondary text-primary">Add Holiday Tag</div>
+      <ul id="themeDropdown" tabindex="0"
+{{!-- Dropdown with holidays to add - holidays already tagged will not show up --}}
+        class="dropdown-content z-[1] menu p-2 shadow  bg-secondary text-primary rounded-box w-52">
+        {{#each allHolidays}}
+        {{#if (no_holiday_dupes this.name ../taggedHolidays name)}}
+        <li><a href="#" data-id="{{this.id}}" data-movie-id="{{../movie.id}}">{{ this.name }}</a></li>
+        {{/if}}
+        {{/each}}
+      </ul>
     </div>
   </div>
-    <div class="flex flex-col min-[350px]:flex-row">
+  <div class="flex flex-wrap items-start px-2 min-[350px]:border-l-2 border-secondary">
+{{!-- Show all holiday tags if there are any --}}
     {{#if taggedHolidays}}
-      <div class="pr-4 flex-none w-32 self-center">
-        <h3 id="holidayTags" class="py-2 m-1 min-[350px]:border-none border-b-2 border-secondary font-bold text-center min-[350px]:text-right">Tags </h3>
-    {{/if}}
-        <div class="dropdown dropdown-hover">
-          <div tabindex="0" role="button" class="btn m-1 bg-secondary text-primary">Add Holiday Tag</div>
-          <ul id="themeDropdown" tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow  bg-secondary text-primary rounded-box w-52">
-            {{#each allHolidays}}
-            {{#if (no_holiday_dupes this.name ../taggedHolidays name)}}
-            <li><a href="#" data-id="{{this.id}}" data-movie-id="{{../movie.id}}">{{ this.name }}</a></li>
-            {{/if}}
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-      <div class="flex flex-wrap items-start px-2 min-[350px]:border-l-2 border-secondary">
-        {{#if taggedHolidays}}
-        {{#each taggedHolidays}}
-        <div
-          class="tag-item flex items-center rounded-2xl bg-primary text-accent border-2 border-secondary m-2 theme-{{get_theme this.name}}">
-          <a class="px-2 py-0.5  theme-{{get_theme this.name}} whitespace-nowrap" href="/holidays/{{ this.id }}">{{ this.name
-            }}</a>
-          <button class="delete-tag-btn px-2 border-l-2 border-secondary h-full" data-movie-id="{{../movie.id}}"
-            data-holiday-id="{{this.id}}">&#x2715</button>
-        </div>
+    {{#each taggedHolidays}}
+    <div
+      class="tag-item flex items-center rounded-2xl bg-primary text-accent border-2 border-secondary m-2 theme-{{get_theme this.name}}">
+      <a class="px-2 py-0.5  theme-{{get_theme this.name}} whitespace-nowrap" href="/holidays/{{ this.id }}">{{
+        this.name
+        }}</a>
+      <button class="delete-tag-btn px-2 border-l-2 border-secondary h-full" data-movie-id="{{../movie.id}}"
+        data-holiday-id="{{this.id}}">&#x2715</button>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+<!-- Trailer Section -->
+{{#if movie.trailers.length}}
+<div class="flex flex-col min-[350px]:flex-row">
+  <div class="pr-4 flex-none w-32 self-center">
+  </div>
+  <div class="flex flex-wrap items-start px-2 min-[350px]:border-l-2 border-secondary">
+    <div class="trailer-section mt-10">
+
+      <h3 class="font-bold text-xl mb-4">Trailers</h3>
+      <div class="trailers flex flex-col gap-4">
+        {{#each movie.trailers}}
+        <iframe class="trailer" width="560" height="315" src="{{this}}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
         {{/each}}
       </div>
-    </div>
-    {{/if}}
-
-  <!-- Trailer Section -->
-  {{#if movie.trailers.length}}
-    <div class="flex flex-col min-[350px]:flex-row">
-      <div class="pr-4 flex-none w-32 self-center">
-      </div>
-      <div class="flex flex-wrap items-start px-2 min-[350px]:border-l-2 border-secondary">
-        <div class="trailer-section mt-10">
-      
-        <h3 class="font-bold text-xl mb-4">Trailers</h3>
-        <div class="trailers flex flex-col gap-4">
-          {{#each movie.trailers}}
-            <iframe class="trailer" width="560" height="315" src="{{this}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          {{/each}}
-        </div>
       {{else}}
-        <p>No trailers available.</p>
+      <p>No trailers available.</p>
       {{/if}}
     </div>
-      </div>
-    </div>
+  </div>
+</div>
 
-    
-    
+
+
 
 <script src="/js/movie-holiday-tag.js"> </script>

@@ -39,7 +39,7 @@
         </h1>
       </div>
       <div class="navbar-end">
-        {{!-- Options Dropdown With Nav Links --}}
+        {{!-- Options dropdown with nav links if logged in --}}
         {{#if logged_in}}
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="btn btn-ghost btn-circle mr-2">
@@ -56,8 +56,9 @@
             <li><a id="logout">Log Out</a></li>
           </ul>
         </div>
+        {{!-- Sign In/Sign Up button if not logged in --}}
         {{else}}
-        <a class="text-3xl mr-6 border-2 border-secondary rounded py-0.5 px-2" href="/login">Sign In/Sign Up</a></li>
+        <a class="text-3xl mr-6 border-secondary rounded py-0.5 px-2" href="/login">Sign In/Sign Up</a></li>
         {{/if}}
       </div>
     </div>
@@ -66,7 +67,10 @@
     </main>
     <footer class="p-2 mt-10 bg-bg w-full border-2 rounded border-secondary text-center">
       <p class="text-xl pb-2">&copy; Team Rad 2024</p>
-      <a href="https://www.themoviedb.org/" target="_blank"><img src="/images/tmdb-blue_square_2.svg" alt="TMDB blue square logo" class="size-[10%] inline-block self-start"></a>
+      {{!-- TMDB logo with link to TMBD --}}
+      <a href="https://www.themoviedb.org/" target="_blank"><img src="/images/tmdb-blue_square_2.svg"
+          alt="TMDB blue square logo" class="size-[10%] inline-block self-start"></a>
+      {{!-- Disclaimer per TMDB --}}
       <p class="text-xl">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
     </footer>
   </div>

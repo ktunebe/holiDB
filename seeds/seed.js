@@ -7,6 +7,7 @@ const movieData = require("./movieData.json");
 const holidayData = require("./holidayData.json");
 const holidayMovieData = require("./holidayMovieData.json");
 
+// Seed database using JSON files
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 

@@ -1,42 +1,44 @@
+{{!-- Show search results --}}
 <div>
   <h2 class="text-center max-[350px]:text-3xl text-4xl lg:text-5xl font-bold pb-6">Search Results</h2>
   {{!-- If search matches part of title in HoliDB, display each result --}}
-    <div class="py-4">
-      <h3 class="max-[350px]:text-3xl text-5xl lg:text-7xl font-undeveloped text-center">HoliDB</h3>
-      {{#if matchedHoliDbMovies}}
-      <h4 class="max-[350px]:text-xl text-2xl lg:text-3xl font-bold text-center pt-8">HoliDB Movies</h4>
-        <ul pb-8>
-          {{#each matchedHoliDbMovies}}
-            <li>
-              {{> holidb-movie-summary}}
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-      <h4 class="text-2xl pb-8">No matching results in HoliDB</h4>
-      {{/if}}
+  <div class="py-4">
+    <h3 class="max-[350px]:text-3xl text-5xl lg:text-7xl font-undeveloped text-center">HoliDB</h3>
+    {{#if matchedHoliDbMovies}}
+    <h4 class="max-[350px]:text-xl text-2xl lg:text-3xl font-bold text-center pt-8">HoliDB Movies</h4>
+    <ul pb-8>
+      {{#each matchedHoliDbMovies}}
+      <li>
+        {{> holidb-movie-summary}}
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <h4 class="text-2xl pb-8">No matching results in HoliDB</h4>
+    {{/if}}
+  </div>
+  {{!-- If search matches part of title in TMDB, display each result --}}
+  <div class="pt-4 my-16">
+    {{#if matchedTmdbMovies}}
+    <div class="text-center flex flex-col">
+      <a href="https://www.themoviedb.org/" target="_blank" class="w-1/2 self-center"><img
+          src="/images/tmbd-blue_long_2.svg" alt="TMBD long logo"></a>
+      <h3 class="text-3xl font-bold pt-8">Add Movies From TMDB</h3>
     </div>
-    {{!-- If search matches part of title in TMDB, display each result --}}
-    <div class="pt-4 my-16">
-      {{#if matchedTmdbMovies}}
-      <div class="text-center flex flex-col">
-        <a href="https://www.themoviedb.org/" target="_blank" class="w-1/2 self-center"><img src="/images/tmbd-blue_long_2.svg" alt="TMBD long logo" ></a>
-        <h3 class="text-3xl font-bold pt-8">Add Movies From TMDB</h3>
-      </div>
-        <ul>
-          {{#each matchedTmdbMovies}}
-          {{!-- Use helper to omit results already in HoliDB --}}
-          {{#if (no_movie_dupes this.title ../matchedHoliDbMovies)}}
-            <li>
-              {{> tmdb-movie-summary}}
-            </li>
-          {{/if}}
-          {{/each}}
-        </ul>
-      {{else}}
-      <h3 class="text-2xl py-8">No matching results in TMDB</h3>
+    <ul>
+      {{#each matchedTmdbMovies}}
+      {{!-- Use helper to omit results already in HoliDB --}}
+      {{#if (no_movie_dupes this.title ../matchedHoliDbMovies)}}
+      <li>
+        {{> tmdb-movie-summary}}
+      </li>
       {{/if}}
-    </div>
+      {{/each}}
+    </ul>
+    {{else}}
+    <h3 class="text-2xl py-8">No matching results in TMDB</h3>
+    {{/if}}
+  </div>
 </div>
 
-  <script src="/js/add-movie.js"></script>
+<script src="/js/add-movie.js"></script>
