@@ -21,12 +21,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		holidayDateUTC = new Date(holidayDateInput)
 		const holidayDate = holidayDateUTC.setHours(holidayDateUTC.getHours() + 6);
 
+    // Capitalize the first letters of holiday name;
+    
+    function capitalizeFirstLetter(str) {
+      return str.replace(/\b\w/g, function(char) {
+          return char.toUpperCase();
+      });
+  }
+
+  
+
 		// Prepare data to send
 		const formData = {
-			name: holidayName,
+			name: capitalizeFirstLetter(holidayName),
 			description: holidayDescription,
 			date: holidayDate,
 		};
+
+
+
 
 		// Send data to server using fetch
 		fetch("/api/holidays", {
