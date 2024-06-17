@@ -5,16 +5,6 @@
     "association_score": 5
   },
   {
-    "movie_id": 771,
-    "holiday_id": 2,
-    "association_score": 1
-  },
-  {
-    "movie_id": 771,
-    "holiday_id": 3,
-    "association_score": 1
-  },
-  {
     "movie_id": 562,
     "holiday_id": 3,
     "association_score": 2
@@ -32,6 +22,6 @@
   {
     "movie_id": 424139,
     "holiday_id": 2,
-    "association_score": 6
+    "association_score": 8
   }
 ]

@@ -10,47 +10,60 @@
 		"date": "2001-10-31T06:00:00.000Z",
 		"description": "Halloween is an autumnal celebration on October 31st marked by costumes, spooky decorations, and trick-or-treating, rooted in ancient Celtic and Christian traditions.",
 		"delete_permission": "false"
-	},
-	{
-		"name": "Independence Day (US)",
-		"date": "2001-07-04T06:00:00.000Z",
-		"description": "Independence Day, celebrated on July 4th in the United States, commemorates the country's declaration of independence from British rule in 1776 with fireworks, parades, and patriotic festivities.",
-		"delete_permission": "false"
-	},
-	{
-		"name": "St. Patrick's Day",
-		"date": "2001-03-17T06:00:00.000Z",
-		"description": "Celebrated on March 17, St. Patrick's Day honors St. Patrick, the patron saint of Ireland. It features parades, wearing green, and public festivals with Irish food, music, and dancing. Symbols include shamrocks and leprechauns.",
-		"delete_permission": "false"
+		},
+		{
+			"name": "Independence Day (US)",
+			"date": "2001-07-04T06:00:00.000Z",
+			"description": "Independence Day, celebrated on July 4th in the United States, commemorates the country's declaration of independence from British rule in 1776 with fireworks, parades, and patriotic festivities.",
+			"delete_permission": "false"
+			},
+			{
+				"name": "St. Patrick's Day",
+				"date": "2001-03-17T06:00:00.000Z",
+				"description": "Celebrated on March 17, St. Patrick's Day honors St. Patrick, the patron saint of Ireland. It features parades, wearing green, and public festivals with Irish food, music, and dancing. Symbols include shamrocks and leprechauns.",
+				"delete_permission": "false"
 	},
 	{
 		"name": "Easter",
 		"date": "2001-04-20T06:00:00.000Z",
 		"description": "Easter celebrates the resurrection of Jesus Christ. It falls on the first Sunday after the first full moon post-vernal equinox. Traditions include church services, egg hunts, and festive meals. The Easter Bunny is a popular symbol.",
 		"delete_permission": "false"
-	},
-	{
-		"name": "Thanksgiving",
-		"date": "2001-11-28T06:00:00.000Z",
-		"description": "Thanksgiving, on the fourth Thursday in November, is a U.S. holiday for giving thanks and celebrating the harvest. It features family gatherings and a meal with turkey, stuffing, and pumpkin pie. It also marks the start of the Christmas shopping season.",
-		"delete_permission": "false"
-	},
-	{
-		"name": "Valentine's Day",
-		"date": "2001-02-14T06:00:00.000Z",
-		"description": "Valentine's Day, on February 14, celebrates love and affection between partners. Traditions include exchanging cards, flowers, and gifts, as well as romantic dinners. It originated as a feast day for Saint Valentine.",
-		"delete_permission": "false"
-	},
-	{
-		"name": "New Year's Day (US)",
-		"date": "2001-01-01T06:00:00.000Z",
-		"description": "New Year's Day, on January 1, marks the start of the year. Celebrations begin on New Year's Eve with parties and fireworks. At midnight, people toast, cheer, and make resolutions for the new year. It's a time for hope and renewal.",
-		"delete_permission": "false"
-	},
-	{
-		"name": "Sal's Birthday",
-		"date": "2001-08-04T05:00:00.000Z",
-		"description": "A day celebrating the birth of our good friend Sal. Traditionally, we salvage a salivary salami salad in salutation of Sal.",
-		"delete_permission": "true"
-	}
-]
+		},
+		{
+			"name": "Thanksgiving",
+			"date": "2001-11-28T06:00:00.000Z",
+			"description": "Thanksgiving, on the fourth Thursday in November, is a U.S. holiday for giving thanks and celebrating the harvest. It features family gatherings and a meal with turkey, stuffing, and pumpkin pie. It also marks the start of the Christmas shopping season.",
+			"delete_permission": "false"
+			},
+			{
+				"name": "Valentine's Day",
+				"date": "2001-02-14T06:00:00.000Z",
+				"description": "Valentine's Day, on February 14, celebrates love and affection between partners. Traditions include exchanging cards, flowers, and gifts, as well as romantic dinners. It originated as a feast day for Saint Valentine.",
+				"delete_permission": "false"
+				},
+				{
+					"name": "New Year's Day (US)",
+					"date": "2001-01-01T06:00:00.000Z",
+					"description": "New Year's Day, on January 1, marks the start of the year. Celebrations begin on New Year's Eve with parties and fireworks. At midnight, people toast, cheer, and make resolutions for the new year. It's a time for hope and renewal.",
+					"delete_permission": "false"
+					},
+					{
+						"name": "Sal's Birthday",
+						"date": "2001-08-04T05:00:00.000Z",
+						"description": "A day celebrating the birth of our good friend Sal. Traditionally, we salvage a salivary salami salad in salutation of Sal.",
+						"delete_permission": "true"
+						},
+					{
+						"name": "Hanukkah",
+						"date": "2001-12-25T06:00:00.000Z",
+						"description": "Hanukkah, the Festival of Lights, is an eight-day Jewish holiday celebrating the rededication of the Second Temple in Jerusalem. It features nightly menorah lighting, prayers, and foods like latkes and sufganiyot, symbolizing light and miracles.",
+						"delete_permission": "false"
+					},
+					{
+						"name": "Ramadan",
+						"date": "2001-02-28T06:00:00.000Z",
+						"description": "Ramadan is the ninth month of the Islamic calendar, observed by Muslims with fasting from dawn to sunset. It focuses on prayer, reflection, and community. Muslims abstain from food and drink, emphasizing spiritual growth, charity, and self-discipline.",
+						"delete_permission": "false"
+					}
+						]
+						

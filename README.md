@@ -53,9 +53,13 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
   ## Tools and 3rd party assistance
   * Josh Naylor EdX bootcamp instructor 
   * moviedb-promise npm package
+    - GitHub: https://github.com/grantholle/moviedb-promise
   * ChatGPT, googledocs, color-hex.com
+  * TailwindCSS
   * Daisy UI framework
-  * Credit to TMDB for the API 
+  * Credit to TMDB for the API: [TMDB ](https://www.themoviedb.org/)
+    - This product uses the TMDB API but is not endorsed or certified by TMDB.
+  * Font for HoliDB logo is "Undeveloped", created by Vladimir Nikolic. Freeware downloaded from [1001fonts.com](https://www.1001fonts.com/)
 
   ## Obstacles 
   * First time brainstorming our own Models and Associations following the MVC model.

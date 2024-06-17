@@ -1,6 +1,6 @@
 {{!-- Movie summary with links --}}
-<div class="flex max-[350px]:gap-1 gap-2 lg:gap-4 pt-10">
-  <div class="flex-none max-[350px]:w-24 max-[350px]:h-24 w-32 h-32 self-center">
+<div class="sm:flex max-[450px]:gap-1 gap-2 lg:gap-4 pt-10">
+  <div class="flex-none float-left max-[450px]:w-24 max-[450px]:h-24 w-32 h-32 self-center">
     <a href="/movies/{{ this.id }}">
       <img class="object-contain w-full h-full" src="{{ this.poster_path }}"
         alt="{{ this.title }} poster"></img>
@@ -8,7 +8,7 @@
   </div>
   <div class="self-center">
     <a class="inline-block" href="/movies/{{ this.id }}">
-      <h2 class="font-bold max-[350px]:text-xl text-2xl pb-2">{{ this.title }}</h2>
+      <h2 class="font-bold max-[450px]:text-xl text-2xl pb-2">{{ this.title }}</h2>
     </a>
     <p class="py-2">{{ this.overview }}</p>
     <div class="flex flex-wrap items-start px-2">

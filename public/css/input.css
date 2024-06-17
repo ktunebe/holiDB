@@ -60,6 +60,24 @@
   --color-accent: #ffffff;
 }
 
+.theme-ramadan {
+  --color-primary: #830000;
+  --color-secondary: 	#015e49;
+  --color-accent: 	#c2c2e1;
+}
+
+.theme-hanukkah {
+  --color-primary: #001eff;
+  --color-secondary: #cfcfcf;
+  --color-accent: #ffffff;
+}
+
+.theme-birthday {
+  --color-primary: #4aa8db;
+  --color-secondary: #ff432e;
+  --color-accent: #ffffff;
+}
+
 
 @tailwind base;
 @tailwind components;

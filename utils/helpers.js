@@ -24,9 +24,12 @@ module.exports = {
 	/* ---------------------------------------------------------------------------- */
 	// Get theme from holiday name
 	get_theme: (name) => {
+		const checkForBirthday = name.toLowerCase().split(" ")
 		const holidayFirstSplit = name.toLowerCase().split(" day")[0].split("'")[0];
 		if (holidayFirstSplit.split(" ")[1]) {
 			return holidayFirstSplit.split(" ")[1];
+		} else if (checkForBirthday.length > 1 && checkForBirthday[checkForBirthday.length - 1] === "birthday") {
+			return checkForBirthday[checkForBirthday.length - 1]
 		} else {
 			return holidayFirstSplit;
 		}

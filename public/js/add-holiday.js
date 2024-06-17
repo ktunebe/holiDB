@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		const holidayName = document.getElementById("holidayName").value;
 		const holidayDescription =
 			document.getElementById("holidayDescription").value;
-		const holidayDate = document.getElementById("holidayDate").value;
+		const holidayDateInput = document.getElementById("holidayDate").value;
+		holidayDateUTC = new Date(holidayDateInput)
+		const holidayDate = holidayDateUTC.setHours(holidayDateUTC.getHours() + 6);
 
 		// Prepare data to send
 		const formData = {

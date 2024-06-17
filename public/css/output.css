@@ -63,6 +63,24 @@
   --color-accent: #ffffff;
 }
 
+.theme-ramadan {
+  --color-primary: #830000;
+  --color-secondary: 	#015e49;
+  --color-accent: 	#c2c2e1;
+}
+
+.theme-hanukkah {
+  --color-primary: #001eff;
+  --color-secondary: #cfcfcf;
+  --color-accent: #ffffff;
+}
+
+.theme-birthday {
+  --color-primary: #4aa8db;
+  --color-secondary: #ff432e;
+  --color-accent: #ffffff;
+}
+
 /* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
 
 /*
@@ -8866,10 +8884,6 @@ html:has(.drawer-open.drawer-open) {
   margin-right: 0.5rem;
 }
 
-.mr-6 {
-  margin-right: 1.5rem;
-}
-
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -9948,10 +9962,6 @@ html:has(.drawer-open.drawer-open) {
   border-radius: var(--rounded-box, 1rem);
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .rounded-xl {
   border-radius: 0.75rem;
 }
@@ -10253,6 +10263,10 @@ html:has(.drawer-open.drawer-open) {
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .p-8 {
@@ -11037,39 +11051,50 @@ html:has(.drawer-open.drawer-open) {
   text-align: center;
 }
 
-@media (max-width: 350px) {
-  .max-\[350px\]\:h-24 {
+@media (max-width: 640px) {
+  .max-\[640px\]\:items-center {
+    align-items: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .max-\[450px\]\:h-24 {
     height: 6rem;
   }
 
-  .max-\[350px\]\:w-24 {
+  .max-\[450px\]\:w-24 {
     width: 6rem;
   }
 
-  .max-\[350px\]\:flex-col {
+  .max-\[450px\]\:flex-col {
     flex-direction: column;
   }
 
-  .max-\[350px\]\:gap-1 {
+  .max-\[450px\]\:gap-1 {
     gap: 0.25rem;
   }
 
-  .max-\[350px\]\:px-4 {
+  .max-\[450px\]\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  .max-\[350px\]\:text-3xl {
+  .max-\[450px\]\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .max-\[450px\]\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
 
-  .max-\[350px\]\:text-base {
+  .max-\[450px\]\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }
 
-  .max-\[350px\]\:text-xl {
+  .max-\[450px\]\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
@@ -11094,6 +11119,14 @@ html:has(.drawer-open.drawer-open) {
 }
 
 @media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
@@ -11128,6 +11161,11 @@ html:has(.drawer-open.drawer-open) {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .lg\:text-5xl {
