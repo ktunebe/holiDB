@@ -47,8 +47,11 @@ Tag your favorite movies with holidays to make finding a movie to watch easier t
 
   
   ## Questions
-  * Here is a link to my [GitHub](https://github.com/soko77788) profile.
-  * For further questions email me at nicksoko@gmail.com.
+  Any questions about this application should be directed to:
+
+  GitHub: https://github.com/ktunebe
+
+  Email: ktunebe@gmail.com
 
   ## Tools and 3rd party assistance
   * Josh Naylor EdX bootcamp instructor 
